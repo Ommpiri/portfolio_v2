@@ -115,6 +115,18 @@ The optimized production bundle will be generated in the `dist/` directory.
 
 ---
 
+## 🙏 Credits & Acknowledgements
+
+Special thanks and appreciation to the open-source creators and designers whose work inspired and contributed to this portfolio:
+
+- **Ali Sanati** ([@Ali-Sanati](https://github.com/Ali-Sanati)) — Original 3D developer portfolio UI layout & Three.js canvas foundation ([Portfolio Repository](https://github.com/Ali-Sanati/Portfolio)).
+- **Henry Heffernan** ([@henryjeff](https://github.com/henryjeff)) — Inspiration for interactive OS desktop architecture and spatial web interfaces ([henryheffernan.com](https://henryheffernan.com/)).
+- **Tenhun** — Concept art and 3D character design for the *Falling Spaceman* 3D model asset.
+- **Poimandres** ([@pmndrs](https://github.com/pmndrs)) — Incredible 3D ecosystem tools including `react-three-fiber`, `drei`, and `maath`.
+- **Aceternity UI & Magic UI** — Reusable UI components, smooth particles, and text flip animations.
+
+---
+
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
