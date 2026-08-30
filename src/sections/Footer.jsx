@@ -15,7 +15,7 @@ const Footer = () => {
           </a>
         ))}
       </div>
-      <p>© 2026 Omm Piri. All rights reserved.</p>
+      <p>© 2026 Omm Atrayu Piri. All rights reserved.</p>
     </section>
   );
 };

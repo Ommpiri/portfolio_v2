@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 
 const CopyEmailButton = () => {
   const [copied, setCopied] = useState(false);
-  const email = "ommpiri@gmail.com";
+  const email = "ommpiri21@gmail.com";
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(email);
@@ -31,7 +31,7 @@ const CopyEmailButton = () => {
             transition={{ duration: 0.1, ease: "easeInOut" }}
           >
             <img src="assets/copy-done.svg" className="w-5" alt="copy Icon" />
-            ommpiri@gmail.com Copied!
+            ommpiri21@gmail.com Copied!
           </motion.p>
         ) : (
           <motion.p
