@@ -1,0 +1,6 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/2026", "destination": "/2026.html" }
+  ]
+}

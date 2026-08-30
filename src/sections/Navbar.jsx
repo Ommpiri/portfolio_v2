@@ -34,7 +34,7 @@ function Navigation() {
       </li>
       <li className="nav-li pl-2">
         <a
-          href="http://localhost:8080"
+          href="/"
           className="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-mono font-semibold text-amber-200 bg-gradient-to-r from-amber-950/60 to-orange-950/60 border border-amber-500/40 rounded-full hover:border-amber-300 hover:text-amber-100 hover:shadow-[0_0_20px_rgba(245,158,11,0.35)] transition-all backdrop-blur-md"
           title="Switch back to Classic 2006 Retro Desktop OS"
         >
