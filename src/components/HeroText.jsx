@@ -11,18 +11,6 @@ const HeroText = () => {
     <div className="z-10 mt-20 text-center md:mt-36 md:text-left rounded-3xl bg-clip-text">
       {/* Desktop View */}
       <div className="flex-col hidden md:flex c-space">
-        <motion.div
-          className="inline-flex items-center gap-2.5 px-4 py-1.5 mb-4 border rounded-full w-fit bg-gradient-to-r from-purple-950/50 via-cyan-950/50 to-orange-950/50 border-purple-500/30 backdrop-blur-md shadow-[0_0_20px_rgba(168,85,247,0.15)]"
-          variants={variants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.8 }}
-        >
-          <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#38bdf8] animate-pulse" />
-          <span className="text-xs font-mono tracking-widest text-cyan-200 uppercase font-medium">
-            OMM_OS // SPATIAL 3D ARCHITECTURE
-          </span>
-        </motion.div>
         <motion.h1
           className="text-4xl font-bold tracking-tight text-white md:text-5xl"
           variants={variants}
@@ -66,18 +54,6 @@ const HeroText = () => {
       </div>
       {/* Mobile View */}
       <div className="flex flex-col space-y-4 md:hidden">
-        <motion.div
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 mx-auto border rounded-full w-fit bg-purple-950/40 border-purple-500/30 backdrop-blur-md"
-          variants={variants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.8 }}
-        >
-          <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#38bdf8] animate-pulse" />
-          <span className="text-xs font-mono text-cyan-200 uppercase font-medium">
-            OMM_OS 2026
-          </span>
-        </motion.div>
         <motion.p
           className="text-3xl font-bold text-white"
           variants={variants}
@@ -85,7 +61,7 @@ const HeroText = () => {
           animate="visible"
           transition={{ delay: 1 }}
         >
-          Hi, I'm <span className="text-transparent bg-gradient-to-r from-cyan-300 to-orange-300 bg-clip-text">Omm Atrayu Piri</span>
+          Hi, I'm <span className="text-transparent bg-gradient-to-r from-aqua via-lavender to-cyan-300 bg-clip-text">Omm Atrayu Piri</span>
         </motion.p>
         <div>
           <motion.p
