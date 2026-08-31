@@ -90,7 +90,6 @@ const Navbar = () => {
             className="flex items-center gap-2.5 transition-colors group"
           >
             <span className="font-bold tracking-wider text-white font-mono text-sm group-hover:text-neutral-200">OMM / ARCHIVE</span>
-            <span className="text-[10px] font-mono font-medium tracking-widest text-[#3dffa0] px-2 py-0.5 rounded-full bg-[#3dffa0]/10 border border-[#3dffa0]/30 shadow-[0_0_8px_rgba(61,255,160,0.15)]">2026 SPATIAL</span>
           </a>
           <button
             onClick={() => setIsOpen(!isOpen)}
