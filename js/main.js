@@ -96,6 +96,33 @@ const CONFIG = {
    ================================================================ */
 const SPOTIFY_PLAYLISTS = [
   {
+    id: "37i9dQZF1DX5Ejj0EkURtP",
+    title: "All Out 2010s — Global Mega Hits",
+    subtitle: "Avicii, Calvin Harris, Rihanna, Bruno Mars, Drake, The Weeknd",
+    genre: "2010s Hits",
+    icon: "🔥",
+    bg: "linear-gradient(135deg, #0284c7, #082f49)",
+    embedUrl: "https://open.spotify.com/embed/playlist/37i9dQZF1DX5Ejj0EkURtP?utm_source=generator&theme=0"
+  },
+  {
+    id: "37i9dQZF1DX0XUfTFmZeZw",
+    title: "2010s Bollywood Chartbusters",
+    subtitle: "Arijit Singh, Mohit Chauhan, Pritam, Shreya Ghoshal, Atif Aslam",
+    genre: "2010s Bollywood",
+    icon: "✨",
+    bg: "linear-gradient(135deg, #e11d48, #4c0519)",
+    embedUrl: "https://open.spotify.com/embed/playlist/37i9dQZF1DX0XUfTFmZeZw?utm_source=generator&theme=0"
+  },
+  {
+    id: "37i9dQZF1DX4dyzvuaRJ0n",
+    title: "2010s EDM & Dance Festival Anthems",
+    subtitle: "Swedish House Mafia, David Guetta, Martin Garrix, Tiësto, Skrillex",
+    genre: "2010s EDM",
+    icon: "⚡",
+    bg: "linear-gradient(135deg, #7c3aed, #2e1065)",
+    embedUrl: "https://open.spotify.com/embed/playlist/37i9dQZF1DX4dyzvuaRJ0n?utm_source=generator&theme=0"
+  },
+  {
     id: "37i9dQZF1DXb57FjYWz00c",
     title: "All Out 80s — Pop & Rock Hits",
     subtitle: "Michael Jackson, Queen, Madonna, Wham!, Cyndi Lauper",
