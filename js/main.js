@@ -34,7 +34,7 @@ const CONFIG = {
       year: "2026",
       desc: "Architected a full-stack Python learning platform using Next.js, PostgreSQL, and Auth.js, integrating Pyodide for in-browser execution. Engineered PyDude, an AI tutor built on Gemini function-calling with Auto-Debug Agent mode for real-time error diagnosis. 15-module curriculum with server-side content gating.",
       stack: ["Next.js", "PostgreSQL", "Auth.js", "Pyodide", "Judge0", "Gemini API", "Tailwind CSS"],
-      link: "https://okpythion.vercel.app",
+      link: "https://okpython.vercel.app",
       github: "https://github.com/Ommpiri/okpythion"
     },
     {
@@ -52,8 +52,8 @@ const CONFIG = {
       year: "2025",
       desc: "Engineered an ESP32-based intrusion detection system covering 3 security domains using servo-sweep scanning and real-time sensor fusion. Developed a live WebSocket dashboard and integrated MQTT messaging via HiveMQ. Co-authored an IEEE paper on the approach.",
       stack: ["ESP32", "C++", "WebSocket", "MQTT (HiveMQ)", "Next.js", "Vercel"],
-      link: "https://sentinel-one.vercel.app",
-      github: "https://github.com/Ommpiri/Sentinel-One"
+      link: "",
+      github: ""
     },
     {
       title: "4XT Esports Organization Platform",
@@ -61,8 +61,8 @@ const CONFIG = {
       year: "2024",
       desc: "Led and managed a competitive BGMI esports organization, overseeing roster strategy, team performance analytics, and tournament operations.",
       stack: ["Team Coordination", "Esports Analytics", "Strategic Operations"],
-      link: "https://4xt-esports.vercel.app",
-      github: "https://github.com/Ommpiri/4XT-Esports"
+      link: "",
+      github: ""
     },
     {
       title: "OMM_OS Personal Operating System",
@@ -320,7 +320,7 @@ function renderProjects(){
       <p>${p.desc}</p>
       <div class="proj-stack">${p.stack.map(s=>`<span>${s}</span>`).join('')}</div>
       <div class="proj-footer">
-        <a class="proj-link" href="${p.link}" target="_blank" rel="noopener noreferrer">View project →</a>
+        ${p.link ? `<a class="proj-link" href="${p.link}" target="_blank" rel="noopener noreferrer">View project →</a>` : `<span class="proj-link" style="opacity:0.55; cursor:default;">Hardware / System</span>`}
         ${p.github ? `
         <a class="proj-gh-link" href="${p.github}" target="_blank" rel="noopener noreferrer" title="View repository on GitHub (${p.title})" aria-label="View repository on GitHub">
           <svg class="proj-gh-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">

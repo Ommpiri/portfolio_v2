@@ -44,38 +44,46 @@ const ProjectDetails = ({
 
           {/* Browser Address Bar & View Mode Toggle */}
           <div className="flex items-center gap-3 bg-midnight/90 border border-white/10 px-3.5 py-1.5 rounded-full text-xs text-neutral-300 max-w-lg w-full mx-3 shadow-inner">
-            <span className="text-emerald-400 font-mono text-[11px] hidden sm:inline">🔒 https://</span>
+            <span className="text-emerald-400 font-mono text-[11px] hidden sm:inline">
+              {href ? "🔒 https://" : "⚡ system://"}
+            </span>
             <span className="truncate font-mono text-neutral-300 flex-1">
-              {href ? href.replace(/^https?:\/\//, "") : "live-site.app"}
+              {href ? href.replace(/^https?:\/\//, "") : `${title.toLowerCase().replace(/[^a-z0-9]/g, "-")}.hardware`}
             </span>
 
             {/* View Mode Switcher Pills */}
-            <div className="flex items-center gap-1 bg-black/40 p-0.5 rounded-full border border-white/5">
-              <button
-                onClick={() => setViewMode("preview")}
-                className={`px-2.5 py-0.5 rounded-full text-[11px] font-medium transition-colors cursor-pointer ${
-                  viewMode === "preview"
-                    ? "bg-lavender/80 text-white shadow-sm"
-                    : "text-neutral-400 hover:text-white"
-                }`}
-                title="View UI Mockup"
-              >
-                Mockup
-              </button>
-              <button
-                onClick={() => setViewMode("live")}
-                className={`px-2.5 py-0.5 rounded-full text-[11px] font-medium transition-colors cursor-pointer ${
-                  viewMode === "live"
-                    ? "bg-aqua/80 text-black font-semibold shadow-sm"
-                    : "text-neutral-400 hover:text-white"
-                }`}
-                title="Try in-frame Live Embed"
-              >
-                Live Frame
-              </button>
-            </div>
+            {href ? (
+              <div className="flex items-center gap-1 bg-black/40 p-0.5 rounded-full border border-white/5">
+                <button
+                  onClick={() => setViewMode("preview")}
+                  className={`px-2.5 py-0.5 rounded-full text-[11px] font-medium transition-colors cursor-pointer ${
+                    viewMode === "preview"
+                      ? "bg-lavender/80 text-white shadow-sm"
+                      : "text-neutral-400 hover:text-white"
+                  }`}
+                  title="View UI Mockup"
+                >
+                  Mockup
+                </button>
+                <button
+                  onClick={() => setViewMode("live")}
+                  className={`px-2.5 py-0.5 rounded-full text-[11px] font-medium transition-colors cursor-pointer ${
+                    viewMode === "live"
+                      ? "bg-aqua/80 text-black font-semibold shadow-sm"
+                      : "text-neutral-400 hover:text-white"
+                  }`}
+                  title="Try in-frame Live Embed"
+                >
+                  Live Frame
+                </button>
+              </div>
+            ) : (
+              <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono text-amber-400/90 bg-amber-500/10 border border-amber-500/20">
+                Hardware / System
+              </span>
+            )}
 
-            {viewMode === "live" && (
+            {href && viewMode === "live" && (
               <button
                 onClick={handleRefresh}
                 title="Reload live page"
@@ -101,35 +109,41 @@ const ProjectDetails = ({
         {/* Viewport Area */}
         <div className="relative w-full h-[360px] sm:h-[420px] md:h-[480px] bg-slate-950 overflow-hidden flex-shrink-0 flex items-center justify-center">
           <AnimatePresence mode="wait">
-            {viewMode === "preview" ? (
+            {viewMode === "preview" || !href ? (
               <motion.div
                 key="preview"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="relative size-full group cursor-pointer overflow-hidden flex items-center justify-center"
+                className={`relative size-full overflow-hidden flex items-center justify-center ${
+                  href ? "group cursor-pointer" : ""
+                }`}
                 onClick={() => href && window.open(href, "_blank", "noopener,noreferrer")}
               >
                 {image ? (
                   <img
                     src={image}
                     alt={title}
-                    className="size-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                    className={`size-full object-cover object-top transition-transform duration-500 ${
+                      href ? "group-hover:scale-[1.02]" : ""
+                    }`}
                   />
                 ) : (
                   <div className="text-neutral-500">Preview image unavailable</div>
                 )}
 
                 {/* Hover Action Overlay */}
-                <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3">
-                  <span className="px-5 py-2.5 rounded-full font-semibold text-sm bg-radial from-lavender to-royal text-white shadow-xl flex items-center gap-2">
-                    Launch Real-Time Website
-                    <img src="assets/arrow-up.svg" className="size-3.5" alt="open" />
-                  </span>
-                  <span className="text-xs font-mono text-neutral-300">
-                    Click to open {href ? href.replace(/^https?:\/\//, "") : "live site"}
-                  </span>
-                </div>
+                {href && (
+                  <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3">
+                    <span className="px-5 py-2.5 rounded-full font-semibold text-sm bg-radial from-lavender to-royal text-white shadow-xl flex items-center gap-2">
+                      Launch Real-Time Website
+                      <img src="assets/arrow-up.svg" className="size-3.5" alt="open" />
+                    </span>
+                    <span className="text-xs font-mono text-neutral-300">
+                      Click to open {href.replace(/^https?:\/\//, "")}
+                    </span>
+                  </div>
+                )}
               </motion.div>
             ) : (
               <motion.div

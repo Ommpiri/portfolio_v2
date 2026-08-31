@@ -1,7 +1,7 @@
 export const myProjects = [
   {
     id: 1,
-    title: "Okpythion (PyDude AI Tutor)",
+    title: "okpython (PyDude AI Tutor)",
     description:
       "Interactive full-stack Python learning platform with in-browser code execution and an autonomous Gemini AI debug agent.",
     subDescription: [
@@ -10,7 +10,7 @@ export const myProjects = [
       "Built multi-level coding tracks from basic loops to advanced data structures with real-time test case evaluation.",
       "Designed a cyber-minimalist dark mode IDE interface with Monaco code editor and execution telemetry.",
     ],
-    href: "https://okpythion.vercel.app",
+    href: "https://okpython.vercel.app",
     github: "https://github.com/Ommpiri/okpythion",
     logo: "",
     image: "/assets/projects/okpython.png",
@@ -54,8 +54,8 @@ export const myProjects = [
       "Designed an interactive web-based monitoring console with live sensor graphs, audio alarms, and incident logging.",
       "Co-authored research paper on multi-domain sensor fusion architecture submitted for IEEE publication.",
     ],
-    href: "https://sentinel-one.vercel.app",
-    github: "https://github.com/Ommpiri/Sentinel-One",
+    href: "",
+    github: "",
     logo: "",
     image: "/assets/projects/sentinel-one.png",
     tags: [
@@ -75,8 +75,8 @@ export const myProjects = [
       "Created structured scrim analytics tracking player performance, zone rotations, and kill/death metrics.",
       "Coordinated live tournament participation, strategic map positioning, and team operations.",
     ],
-    href: "https://4xt-esports.vercel.app",
-    github: "https://github.com/Ommpiri/4XT-Esports",
+    href: "",
+    github: "",
     logo: "",
     image: "/assets/projects/4xt-esports.jpg",
     tags: [

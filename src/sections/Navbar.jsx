@@ -1,44 +1,77 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 
+const navItems = [
+  {
+    name: "Home",
+    href: "#home",
+    icon: (
+      <svg className="w-3.5 h-3.5 opacity-70 group-hover:opacity-100 group-hover:text-aqua transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+      </svg>
+    ),
+  },
+  {
+    name: "About",
+    href: "#about",
+    icon: (
+      <svg className="w-3.5 h-3.5 opacity-70 group-hover:opacity-100 group-hover:text-aqua transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+      </svg>
+    ),
+  },
+  {
+    name: "Work",
+    href: "#work",
+    icon: (
+      <svg className="w-3.5 h-3.5 opacity-70 group-hover:opacity-100 group-hover:text-aqua transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+    ),
+  },
+  {
+    name: "Certificates",
+    href: "#certificates",
+    icon: (
+      <svg className="w-3.5 h-3.5 opacity-70 group-hover:opacity-100 group-hover:text-aqua transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+      </svg>
+    ),
+  },
+  {
+    name: "Contact",
+    href: "#contact",
+    icon: (
+      <svg className="w-3.5 h-3.5 opacity-70 group-hover:opacity-100 group-hover:text-aqua transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+    ),
+  },
+];
+
 function Navigation() {
   return (
-    <ul className="nav-ul items-center gap-6">
-      <li className="nav-li">
-        <a className="nav-link text-neutral-300 hover:text-white transition-colors" href="#home">
-          Home
-        </a>
-      </li>
-      <li className="nav-li">
-        <a className="nav-link text-neutral-300 hover:text-white transition-colors" href="#about">
-          About
-        </a>
-      </li>
-      <li className="nav-li">
-        <a className="nav-link text-neutral-300 hover:text-white transition-colors" href="#work">
-          Work
-        </a>
-      </li>
-      <li className="nav-li">
-        <a
-          className="nav-link text-neutral-300 hover:text-white transition-colors"
-          href="#certificates"
-        >
-          Certificates
-        </a>
-      </li>
-      <li className="nav-li">
-        <a className="nav-link text-neutral-300 hover:text-white transition-colors" href="#contact">
-          Contact
-        </a>
-      </li>
+    <ul className="nav-ul items-center gap-5 md:gap-6">
+      {navItems.map((item) => (
+        <li key={item.name} className="nav-li">
+          <a
+            className="nav-link flex items-center gap-1.5 text-neutral-300 hover:text-white transition-colors group"
+            href={item.href}
+          >
+            {item.icon}
+            <span>{item.name}</span>
+          </a>
+        </li>
+      ))}
       <li className="nav-li pl-2">
         <a
           href="/"
-          className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-mono font-medium text-neutral-200 bg-white/5 border border-white/15 rounded-full hover:border-[#ff2b4d]/60 hover:text-white hover:bg-white/10 hover:shadow-[0_0_12px_rgba(255,43,77,0.2)] transition-all backdrop-blur-md"
+          className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-mono font-medium text-neutral-200 bg-white/5 border border-white/15 rounded-full hover:border-[#3dffa0]/60 hover:text-white hover:bg-white/10 hover:shadow-[0_0_12px_rgba(61,255,160,0.2)] transition-all backdrop-blur-md group"
           title="Switch back to Classic 2006 Retro Desktop OS"
         >
-          <span className="text-[#ff2b4d]">⏪</span>
+          <svg className="w-3.5 h-3.5 text-[#3dffa0] group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0019 16V8a1 1 0 00-1.6-.8l-5.334 4zM4.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0011 16V8a1 1 0 00-1.6-.8l-5.334 4z" />
+          </svg>
           <span>Classic OS</span>
         </a>
       </li>
@@ -56,7 +89,6 @@ const Navbar = () => {
             href="/"
             className="flex items-center gap-2.5 transition-colors group"
           >
-            <span className="inline-block w-2 h-2 rounded-full bg-[#ff2b4d] shadow-[0_0_8px_#ff2b4d] animate-pulse"></span>
             <span className="font-bold tracking-wider text-white font-mono text-sm group-hover:text-neutral-200">OMM / ARCHIVE</span>
             <span className="text-[10px] font-mono font-medium tracking-widest text-[#3dffa0] px-2 py-0.5 rounded-full bg-[#3dffa0]/10 border border-[#3dffa0]/30 shadow-[0_0_8px_rgba(61,255,160,0.15)]">2026 SPATIAL</span>
           </a>
