@@ -1827,7 +1827,11 @@ const upgradeTopbarBtn  = document.getElementById('upgrade-topbar-btn');
 const startUpgradeBtn   = document.getElementById('start-upgrade-btn');
 
 function shiftTo2026(){
-  window.location.href = 'http://localhost:5173';
+  if (window.location.protocol === 'file:') {
+    window.location.href = '2026.html';
+  } else {
+    window.location.href = window.location.origin + '/2026.html';
+  }
 }
 
 if(upgradeTopbarBtn){
