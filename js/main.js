@@ -1615,13 +1615,38 @@ if(navigator.getBattery){ navigator.getBattery().then(battery => { const refresh
 
 const paperButtons = [...document.querySelectorAll('.wallpaper-swatch')];
 function setPaper(paper){
-  document.body.classList.remove('paper-indigo','paper-moss');
+  document.body.classList.remove('paper-indigo','paper-moss','paper-bliss');
   if(paper !== 'parchment') document.body.classList.add(`paper-${paper}`);
   paperButtons.forEach(btn=>btn.classList.toggle('active',btn.dataset.paper===paper));
   try{localStorage.setItem('omm-os-paper',paper);}catch(e){}
 }
 paperButtons.forEach(btn=>btn.addEventListener('click',()=>setPaper(btn.dataset.paper)));
 try{setPaper(localStorage.getItem('omm-os-paper') || 'parchment');}catch(e){setPaper('parchment');}
+
+/* 2006 CRT Monitor Effect Toggle */
+const crtToggle = document.getElementById('crt-toggle');
+if(crtToggle){
+  crtToggle.addEventListener('click', (e)=>{
+    document.body.classList.toggle('crt-active');
+    const isOn = document.body.classList.contains('crt-active');
+    e.currentTarget.textContent = isOn ? '📺 CRT: ON' : '📺 CRT: OFF';
+    if(isOn) beep(550, 0.08, 'sawtooth', 0.03);
+    else beep(330, 0.06, 'sine', 0.02);
+  });
+}
+
+/* 2006 Desktop Sticky Note Dismiss */
+const stickyCloseBtn = document.getElementById('sticky-close-btn');
+const retroStickyNote = document.getElementById('retro-sticky-note');
+if(stickyCloseBtn && retroStickyNote){
+  stickyCloseBtn.addEventListener('click', ()=>{
+    beep(350, 0.05, 'sine', 0.02);
+    retroStickyNote.style.transition = 'transform .2s ease, opacity .2s ease';
+    retroStickyNote.style.transform = 'scale(0.8) rotate(-8deg)';
+    retroStickyNote.style.opacity = '0';
+    setTimeout(()=>{ retroStickyNote.style.display = 'none'; }, 220);
+  });
+}
 
 const lofiTracks = [
   {title:'Study Lofi', file:'audio/alex-morgan-study-lofi-music-548638.mp3', notes:[130.81,164.81,196,246.94], bpm:82},

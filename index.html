@@ -29,9 +29,10 @@
 
 <!-- ============ TOP BAR ============ -->
 <div id="topbar">
-  <div class="brand"><span class="dot"></span> OMM / ARCHIVE</div>
+  <div class="brand"><span class="dot"></span> OMM_OS / 2006 ARCHIVE</div>
   <div class="right">
     <button class="icon-btn upgrade-topbar-btn" id="upgrade-topbar-btn" title="Update OS to 2026 3D Spatial Edition">🚀 UPDATE TO v2026</button>
+    <button class="icon-btn" id="crt-toggle" title="Toggle CRT monitor scanline & glass filter">📺 CRT: OFF</button>
     <button class="icon-btn" id="sound-toggle" title="Toggle sound">🔈 SOUND: OFF</button>
     <span class="battery-readout" id="battery-readout" title="Battery status"><span class="battery-icon"><i></i></span><b id="battery-pct">98%</b></span>
     <div class="top-actions"><button class="top-action" id="search-toggle" title="Search apps (Ctrl K)">⌕</button><button class="top-action" id="notify-toggle" title="Notifications">◌</button></div>
@@ -43,6 +44,7 @@
 <div id="desktop">
   <button class="home-search" id="home-search" aria-label="Search the archive"><span>⌕</span><span>Search the archive</span><kbd>Ctrl K</kbd></button>
   <div id="snap-guide" aria-hidden="true"></div>
+  
   <div class="icon-grid">
     <button class="desk-icon" data-app="about"><span class="glyph">🧑‍💻</span><span>About_Me</span></button>
     <button class="desk-icon" data-app="education"><span class="glyph">📁</span><span>Education</span></button>
@@ -58,10 +60,40 @@
     <button class="desk-icon" data-app="gallery"><span class="glyph">🖼️</span><span>Gallery_2006</span></button>
     <button class="desk-icon upgrade-desk-icon" data-app="upgrade"><span class="glyph">🚀</span><span>Update_2026</span></button>
   </div>
+
+  <!-- 2006 RETRO DESKTOP STICKY NOTE -->
+  <div class="retro-sticky-note" id="retro-sticky-note">
+    <div class="sticky-tape"></div>
+    <div class="sticky-head">
+      <span>📌 NOTES_2006.TXT</span>
+      <button class="sticky-close" id="sticky-close-btn" title="Dismiss note">✕</button>
+    </div>
+    <div class="sticky-body">
+      <p class="sticky-title"><b>• 2006 TO-DO:</b></p>
+      <p>1. Burn custom MP3 mix CD-R 💿</p>
+      <p>2. Update MySpace Top 8 &amp; song 🎵</p>
+      <p>3. Mom: <i>"Hang up dial-up, need phone!"</i> ☎️</p>
+      <p>4. Feed Tamagotchi &amp; play Pinball 👾</p>
+      <p>5. Don't touch System32 folder 😉</p>
+    </div>
+    <div class="sticky-footer">// OMM_OS ARCHIVE · POST-IT v1.0</div>
+  </div>
+
   <aside class="hud" aria-label="System status">
-    <div class="hud-card"><div class="hud-kicker">Field notes</div><div class="hud-value">Building practical software.</div><div class="hud-meta">OMM ATRAYU PIRI / OS</div><div class="signal"><i></i><i></i><i></i><i></i></div></div>
-    <div class="hud-card"><div class="hud-kicker">Current record</div><div class="hud-value" style="font-size:16px">AI, Full-Stack &amp; IoT</div><div class="hud-meta">B.TECH CSE @ LPU</div><div class="hud-orb"></div></div>
+    <div class="hud-card">
+      <div class="hud-kicker">2006 System Monitor</div>
+      <div class="hud-value" style="font-size:15px">Pentium 4 @ 3.2GHz</div>
+      <div class="hud-meta">RAM: 512MB DDR2 · HDD: 80GB</div>
+      <div class="signal"><i></i><i></i><i></i><i></i></div>
+    </div>
+    <div class="hud-card">
+      <div class="hud-kicker">Dial-Up Connection</div>
+      <div class="hud-value" style="font-size:15px; color:#2e7d32;">56.6 Kbps Connected</div>
+      <div class="hud-meta">MSN: ● Online <i>"listening to music"</i></div>
+      <div class="hud-orb"></div>
+    </div>
   </aside>
+
   <section class="home-player" aria-label="Lo-fi player">
     <div class="player-stamp">ARCHIVE RADIO / 01</div><div class="player-label">LO-FI READING ROOM</div>
     <div class="player-track"><div class="record-disc" id="record-disc">A</div><div><b id="lofi-title">Afternoon on paper</b><span id="lofi-status">Ready to play · Station 01 / 04</span></div></div>
@@ -71,7 +103,16 @@
     <div class="spotify-launch-strip"><button class="spotify-mini-btn" id="open-spotify-btn"><span>📻 Open Retro Music Player</span><span class="badge">Retro</span></button></div>
     <audio id="lofi-audio" preload="metadata"></audio>
   </section>
-  <section class="wallpaper-switcher" aria-label="Desktop wallpaper"><div class="wallpaper-label">DESKTOP PAPER</div><div><button class="wallpaper-swatch active" data-paper="parchment" title="Parchment"></button><button class="wallpaper-swatch" data-paper="indigo" title="Indigo paper"></button><button class="wallpaper-swatch" data-paper="moss" title="Moss paper"></button></div></section>
+
+  <section class="wallpaper-switcher" aria-label="Desktop wallpaper">
+    <div class="wallpaper-label">DESKTOP PAPER</div>
+    <div>
+      <button class="wallpaper-swatch active" data-paper="parchment" title="Parchment 2006"></button>
+      <button class="wallpaper-swatch" data-paper="bliss" title="Bliss 2006 Hill"></button>
+      <button class="wallpaper-swatch" data-paper="indigo" title="Indigo Night"></button>
+      <button class="wallpaper-swatch" data-paper="moss" title="Moss Retro"></button>
+    </div>
+  </section>
 
   <!-- ===== WINDOW: ABOUT ===== -->
   <div class="window" data-win="about" style="width:620px; height:490px; top:55px; left:60px;">
@@ -403,6 +444,7 @@
   </div>
 </div>
 
+<div class="crt-overlay" id="crt-overlay" aria-hidden="true"></div>
 <canvas id="matrix-canvas"></canvas>
 <div id="toast"></div>
 <div class="search-layer" id="search-layer" aria-hidden="true"><div class="command-box" role="dialog" aria-label="Search apps"><div class="command-input"><span>⌕</span><input id="command-input" autocomplete="off" placeholder="Search applications or type a command"><kbd>ESC</kbd></div><div class="command-results" id="command-results"></div></div></div>

@@ -363,6 +363,86 @@ body{color:var(--ink);background:#f8edcf;letter-spacing:0;}body::before{z-index:
 .home-player{position:absolute;z-index:4;right:28px;bottom:20px;width:250px;padding:14px;border:1px solid #9e794a;background:rgba(250,239,207,.86);box-shadow:4px 5px 0 rgba(78,49,21,.18),inset 1px 1px rgba(255,255,255,.75);}.player-stamp,.wallpaper-label{font:8px var(--font-mono);letter-spacing:1.4px;color:#9d4234;}.player-label{margin-top:5px;font:20px var(--font-display);color:#322216;letter-spacing:-.2px;}.player-track{display:flex;align-items:center;gap:10px;margin-top:11px;padding:9px 0;border-top:1px solid #cfb184;border-bottom:1px solid #cfb184;}.record-disc{width:33px;height:33px;border-radius:50%;display:grid;place-items:center;background:repeating-radial-gradient(circle,#39291b 0 2px,#261c14 3px 5px);border:2px solid #c99a5e;color:#e8ca90;font:9px var(--font-mono);}.record-disc.spinning{animation:record-spin 2.5s linear infinite;}@keyframes record-spin{to{transform:rotate(360deg)}}.player-track b{display:block;font:12px var(--font-display);font-weight:400;color:#382619;}.player-track span{display:block;margin-top:2px;color:#80644a;font:9px var(--font-mono);}.player-progress{height:4px;margin-top:11px;background:#e3cca0;overflow:hidden;}.player-progress i{display:block;width:8%;height:100%;background:#aa4535;transition:width .4s linear;}.player-controls{display:flex;align-items:center;gap:9px;margin-top:10px;}.player-controls button{width:25px;height:22px;border:1px solid #987044;background:#f5e4b9;color:#5b3a25;font:13px var(--font-mono);line-height:1;}.player-controls button:hover{background:#e8cb92;}.player-controls span{margin-left:auto;color:#7f6448;font:9px var(--font-mono);}
 .wallpaper-switcher{position:absolute;right:294px;bottom:20px;z-index:4;padding:10px 12px;border:1px solid #a68051;background:rgba(250,239,207,.74);box-shadow:3px 4px 0 rgba(78,49,21,.14);}.wallpaper-switcher>div:last-child{display:flex;gap:6px;margin-top:8px;}.wallpaper-swatch{width:17px;height:17px;border:1px solid rgba(61,42,23,.6);border-radius:50%;background:#f8edcf;box-shadow:inset 0 0 0 3px #f8edcf;}.wallpaper-swatch[data-paper="indigo"]{background:#65709a;box-shadow:inset 0 0 0 3px #65709a;}.wallpaper-swatch[data-paper="moss"]{background:#899070;box-shadow:inset 0 0 0 3px #899070;}.wallpaper-swatch.active{outline:1px solid #9d4234;outline-offset:2px;}
 .player-controls button{min-width:25px;width:auto;padding:0 6px;}.player-stations{display:flex;gap:5px;margin-top:11px;padding-top:10px;border-top:1px dotted #b69362;}.station-btn{flex:1;padding:5px 0;border:1px solid #b99665;background:#f4e2b8;color:#6a4d35;font:8px var(--font-mono);}.station-btn:hover,.station-btn.active{background:#9d4234;border-color:#7d3127;color:#fff3d6;}
+/* ============================================================
+   2006 RETRO DESKTOP STICKY NOTE
+   ============================================================ */
+.retro-sticky-note{
+  position:absolute; top:28px; left:236px; z-index:6;
+  width:215px; padding:12px 14px 10px;
+  background:#fff9a6;
+  border:1px solid #d4c264;
+  box-shadow:4px 5px 0 rgba(70,44,23,.22), 0 8px 18px rgba(0,0,0,.15);
+  transform:rotate(-1.8deg);
+  font-family:var(--font-mono);
+  color:#4a3b1a;
+  transition:transform .2s ease, box-shadow .2s ease;
+  user-select:none;
+}
+.retro-sticky-note:hover{
+  transform:rotate(0deg) scale(1.02);
+  box-shadow:6px 8px 0 rgba(70,44,23,.28), 0 12px 24px rgba(0,0,0,.2);
+}
+.sticky-tape{
+  position:absolute; top:-8px; left:50%; transform:translateX(-50%);
+  width:64px; height:16px;
+  background:rgba(255,255,255,.65);
+  border:1px solid rgba(180,160,110,.35);
+  box-shadow:0 1px 3px rgba(0,0,0,.08);
+}
+.sticky-head{
+  display:flex; justify-content:space-between; align-items:center;
+  font:bold 9.5px var(--font-mono); color:#826620;
+  border-bottom:1px dashed #d8c66e; padding-bottom:5px; margin-bottom:8px;
+}
+.sticky-close{
+  background:none; border:none; color:#a6832d; font-size:10px; font-weight:bold; cursor:pointer; padding:0 2px;
+}
+.sticky-close:hover{ color:#aa4535; }
+.sticky-body{ font-size:10.5px; line-height:1.55; display:flex; flex-direction:column; gap:4px; }
+.sticky-title{ font-weight:700; color:#5c4714; }
+.sticky-footer{ margin-top:8px; font-size:8px; color:#9a8342; border-top:1px dotted #d8c66e; padding-top:4px; }
+
+@media(max-width:900px){
+  .retro-sticky-note{ display:none; }
+}
+
+/* ============================================================
+   2006 CRT MONITOR FILTER & PHOSPHOR OVERLAY
+   ============================================================ */
+.crt-overlay{
+  position:fixed; inset:0; z-index:990; pointer-events:none;
+  opacity:0; transition:opacity .3s ease;
+  background:
+    radial-gradient(ellipse at center, transparent 65%, rgba(0,0,0,.5) 100%),
+    repeating-linear-gradient(0deg, rgba(0,0,0,.15) 0 1px, transparent 1px 3px);
+}
+body.crt-active .crt-overlay{ opacity:1; }
+body.crt-active{
+  text-shadow:0 0 1px rgba(0,0,0,.45);
+  filter:contrast(1.06) brightness(0.98);
+}
+
+/* ============================================================
+   2006 BLISS WALLPAPER (XP / RETRO PARADISE)
+   ============================================================ */
+body.paper-bliss{
+  --bg-1:#63a4d8; --bg-2:#3584c2;
+  --ink:#1a2838; --ink-soft:#334d68; --ink-dim:#607d9c;
+  --red:#b23e2b; --glass-strong:rgba(235,244,255,.9);
+}
+.paper-bliss .wallpaper{
+  background:linear-gradient(180deg, #2a75b3 0%, #68b8e8 48%, #52a832 52%, #388a1e 100%)!important;
+}
+.paper-bliss .wallpaper::before{
+  background-image:linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+                   linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+  background-size:40px 40px; opacity:.4;
+}
+.wallpaper-swatch[data-paper="bliss"]{
+  background:linear-gradient(135deg,#68b8e8,#52a832);
+  box-shadow:inset 0 0 0 3px #68b8e8;
+}
+
 body.paper-indigo{--bg-1:#d4d5ca;--bg-2:#a9afbd;--ink:#252b3c;--ink-soft:#4d556a;--ink-dim:#788096;--red:#904b48;--glass-strong:rgba(238,235,214,.88);}.paper-indigo .wallpaper{background:linear-gradient(125deg,#d5d5c6,#aab3c2 55%,#8d97af);}.paper-indigo .wallpaper::before{background-image:linear-gradient(rgba(33,42,65,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(33,42,65,.12) 1px,transparent 1px);}.paper-indigo .blob{opacity:.16;}.paper-indigo .home-player,.paper-indigo .wallpaper-switcher,.paper-indigo .hud-card,.paper-indigo .home-search{background:rgba(239,235,211,.79);}.paper-indigo .blob-1{background:#5e79a7}.paper-indigo .blob-2{background:#b37a75}.paper-indigo .blob-3{background:#7e927a}
 body.paper-moss{--bg-1:#e9e1bd;--bg-2:#c5c69d;--ink:#2c3220;--ink-soft:#505b3a;--ink-dim:#778060;--red:#9a4e36;--glass-strong:rgba(245,239,204,.88);}.paper-moss .wallpaper{background:linear-gradient(125deg,#ece1ba,#c7c89e 55%,#a8ac80);}.paper-moss .wallpaper::before{background-image:linear-gradient(rgba(55,69,35,.13) 1px,transparent 1px),linear-gradient(90deg,rgba(55,69,35,.13) 1px,transparent 1px);}.paper-moss .home-player,.paper-moss .wallpaper-switcher,.paper-moss .hud-card,.paper-moss .home-search{background:rgba(246,239,201,.78);}.paper-moss .blob-1{background:#a8ae6a}.paper-moss .blob-2{background:#b98562}.paper-moss .blob-3{background:#8a9b62}
 @media(max-width:720px){.home-search{top:12px;width:calc(100vw - 165px);left:auto;right:9px;transform:none;}.home-search:hover{transform:translateY(-1px)}.home-search kbd{display:none;}.home-player{display:none;}.wallpaper-switcher{right:9px;bottom:5px;padding:7px 9px;}.wallpaper-label{display:none;}.wallpaper-switcher>div:last-child{margin:0;}.wallpaper-swatch{width:14px;height:14px;}}
