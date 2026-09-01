@@ -7,12 +7,13 @@ const CONFIG = {
   initials: "OP",
   avatarImg: "profile.jpeg",
   handle: "@ommpiri",
-  tagline: "B.Tech CSE student building practical software systems across full-stack, AI, and IoT.",
+  tagline: "Born 2006. Still figuring out how fingers work, let alone computers — but give me a few years.",
   location: "Punjab / Odisha, India (Lovely Professional University)",
   bio: [
-    "I am a Computer Science & Engineering undergraduate at Lovely Professional University focused on building practical software systems across full-stack development, AI-powered applications, and IoT.",
-    "Experienced in developing responsive web platforms, real-time monitoring systems, and developer-focused tools using modern JavaScript and Python stacks. I enjoy solving complex engineering challenges, integrating emerging technologies, and turning ideas into deployable products.",
-    "Poke around this interactive OS to explore my projects, live demos, IoT systems, terminal commands, and integrated Spotify player."
+    "Hi. I'm new here.",
+    "Born 2006. Still figuring out how fingers work, let alone computers — but give me a few years.",
+    "I don't know what Wi-Fi is yet. I don't know what I'll build, break, or become. All I've got right now is a heartbeat, a name, and apparently... a website already running.",
+    "Ask me again in twenty years."
   ],
   skills: [
     "Python", "C", "C++", "Next.js", "React", "Node.js", "Tailwind CSS",
@@ -476,17 +477,35 @@ function renderAbout(){
     <div class="about-grid">
       ${avatarHtml}
       <div class="about-bio">
-        <div class="h-eyebrow">// whoami &amp; profile</div>
+        <div class="h-eyebrow">// whoami &amp; profile (2006 vintage)</div>
         <div class="h-title" style="margin-bottom:2px;">${CONFIG.name}</div>
         <div class="pill" style="margin-bottom:14px;">${CONFIG.location}</div>
-        ${CONFIG.bio.map(p=>`<p>${p}</p>`).join('')}
-        <div class="h-eyebrow" style="margin-top:16px;">// core tech stack</div>
-        <div class="skills-row">${CONFIG.skills.map(s=>`<span class="pill">${s}</span>`).join('')}</div>
-        <div class="h-eyebrow" style="margin-top:16px;">// highlights &amp; leadership</div>
-        <ul class="fact-list">${CONFIG.funFacts.map(f=>`<li>${f}</li>`).join('')}</ul>
-        <a href="${CONFIG.resumeUrl}" target="_blank"><button class="resume-btn">📄 GitHub &amp; Resume ↗</button></a>
+        <div class="retro-bio-text" style="display:flex; flex-direction:column; gap:10px;">
+          ${CONFIG.bio.map(p=>`<p style="line-height:1.65; color:var(--ink-soft);">${p}</p>`).join('')}
+        </div>
+        
+        <div class="future-log-box" style="margin-top:20px; padding:12px 14px; background:rgba(157,66,52,0.07); border:1.5px dashed #aa4535; border-radius:3px;">
+          <div style="font-family:var(--font-mono); font-size:11.5px; font-weight:700; color:#aa4535; letter-spacing:0.8px; margin-bottom:4px;">
+            🔒 [FUTURE LOG — LOCKED]
+          </div>
+          <div style="font-family:var(--font-mono); font-size:11px; color:var(--ink-soft); line-height:1.4;">
+            // available after OS update
+          </div>
+          <button id="about-unlock-btn" style="margin-top:10px; padding:5px 12px; font-family:var(--font-mono); font-size:10.5px; font-weight:bold; background:#9d4234; color:#fff; border:1px solid #633127; border-radius:2px; cursor:pointer; box-shadow:2px 2px 0 #633127;">
+            ⚡ Update to 2026 Edition ↗
+          </button>
+        </div>
+
+        <div style="margin-top:20px;">
+          <a href="${CONFIG.resumeUrl}" target="_blank"><button class="resume-btn">📄 GitHub &amp; Archive ↗</button></a>
+        </div>
       </div>
     </div>`;
+
+  const unlockBtn = el.querySelector('#about-unlock-btn');
+  if(unlockBtn){
+    unlockBtn.addEventListener('click', shiftTo2026);
+  }
 }
 
 function renderProjects(){
