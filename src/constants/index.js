@@ -127,47 +127,38 @@ export const mySocials = [
   },
 ];
 
-export const experiences = [
+export const education = [
   {
-    title: "AI & Full-Stack Engineer",
-    job: "PyDude / Okpythion AI Project",
-    date: "2025 - Present",
+    title: "Bachelor of Technology — Computer Science & Engineering",
+    job: "Lovely Professional University",
+    date: "Aug 2026 – Present",
     contents: [
-      "Architected PyDude — an intelligent coding tutor powered by Gemini API function-calling for interactive Python education.",
-      "Implemented client-side sandboxed Python code execution leveraging Pyodide WebAssembly with zero backend load.",
-      "Built the Auto-Debug Agent capable of contextual traceback parsing and generating instant step-by-step fix recommendations.",
+      "Pursuing B.Tech in Computer Science and Engineering, focusing on building practical software systems across full-stack development, AI-powered applications, and IoT.",
+      "Core coursework and practical mastery in Data Structures & Algorithms, Object-Oriented Software Design, Database Management Systems, and Cloud/AI Architecture.",
+      "Actively developing intelligent developer platforms (PyDude AI Tutor / okpython) and IoT sensor fusion security prototypes.",
     ],
   },
   {
-    title: "IoT Security & Systems Researcher",
-    job: "Sentinel-One / IEEE Research",
-    date: "2024 - 2025",
+    title: "Higher Secondary Education (Senior Secondary)",
+    job: "Modern Public School",
+    date: "May 2024 – Mar 2025",
     contents: [
-      "Engineered multi-sensor intrusion detection architecture combining ESP32 microcontrollers with real-time cloud dispatch.",
-      "Integrated WebSockets and MQTT telemetry for low-latency live telemetry streams to responsive control dashboards.",
-      "Co-authored research paper on multi-domain physical security fusion algorithms for IEEE publication.",
+      "Completed Senior Secondary Education focusing on Sciences (Physics, Chemistry, Mathematics) and Computer Science.",
+      "Built a solid foundation in computational thinking, programming fundamentals in Python and C++, and analytical problem solving.",
     ],
   },
   {
-    title: "Brand Strategist & Frontend Lead",
-    job: "Ambika Agency",
-    date: "2024 - 2025",
+    title: "Secondary Education (High School)",
+    job: "Modern Public School",
+    date: "May 2022 – Mar 2023",
     contents: [
-      "Spearheaded digital rebranding and crafted customized terracotta aesthetic design system.",
-      "Developed responsive web application with Next.js, achieving sub-second load times and interactive catalog search.",
-      "Integrated customer automated contact systems, increasing direct enterprise inquiries.",
-    ],
-  },
-  {
-    title: "Esports Organization Lead",
-    job: "4XT Esports Organization",
-    date: "2022 - 2024",
-    contents: [
-      "Directed team roster operations, scrim schedule management, and tournament entry protocols for competitive BGMI squad.",
-      "Analyzed match telemetry to optimize zone rotation pathways and player combat performance.",
+      "Graduated secondary school examination with academic distinction, achieving 90.2% aggregate.",
+      "Demonstrated academic excellence across core STEM subjects and actively participated in computing and science competitions.",
     ],
   },
 ];
+
+export const experiences = education;
 
 export const certificates = [
   {
