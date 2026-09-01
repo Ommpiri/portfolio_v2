@@ -1879,10 +1879,11 @@ const returningNarrativeScript = [
 
 let isNarrativeRevealing = false;
 let narrativeTimeoutId = null;
+let activeTypingTimeoutId = null;
 
 function playTypingBeep(){
   if(!soundOn) return;
-  beep(880 + Math.random() * 220, 0.025, 'triangle', 0.025);
+  beep(900 + Math.random() * 250, 0.02, 'triangle', 0.02);
 }
 
 function playNarrativeCompleteChime(){
@@ -1891,7 +1892,7 @@ function playNarrativeCompleteChime(){
   setTimeout(() => beep(880, 0.12, 'triangle', 0.04), 90);
 }
 
-function renderScriptLine(lineData){
+function renderScriptLineInstantly(lineData){
   if(!bootLogEl) return;
   const line = document.createElement('div');
   line.className = `boot-log-line ${lineData.type || ''}`;
@@ -1907,11 +1908,12 @@ function renderScriptLine(lineData){
 function finishNarrativeInstantly(){
   if(!isNarrativeRevealing) return;
   clearTimeout(narrativeTimeoutId);
+  clearTimeout(activeTypingTimeoutId);
   isNarrativeRevealing = false;
 
   if(bootLogEl){
     bootLogEl.innerHTML = '';
-    fullNarrativeScript.forEach(line => renderScriptLine(line));
+    fullNarrativeScript.forEach(line => renderScriptLineInstantly(line));
   }
   showNarrativeActions();
 }
@@ -1924,13 +1926,61 @@ function showNarrativeActions(){
     bootCursorEl.style.display = 'inline-block';
   }
   playNarrativeCompleteChime();
-  try {
-    localStorage.setItem(NARRATIVE_STORAGE_KEY, 'true');
-  } catch(e){}
 
   setTimeout(()=>{
     if(bootStayBtn) bootStayBtn.focus();
   }, 100);
+}
+
+function typeLineLetterByLetter(lineItem, onComplete){
+  if(!bootLogEl || !isNarrativeRevealing) return;
+
+  if(lineItem.type === 'narrative-break'){
+    const breakEl = document.createElement('div');
+    breakEl.className = 'boot-log-line narrative-break';
+    bootLogEl.appendChild(breakEl);
+    narrativeTimeoutId = setTimeout(onComplete, 120);
+    return;
+  }
+
+  const lineEl = document.createElement('div');
+  lineEl.className = `boot-log-line ${lineItem.type || ''}`;
+  bootLogEl.appendChild(lineEl);
+
+  const text = lineItem.text || '';
+  let charIdx = 0;
+
+  function typeChar(){
+    if(!isNarrativeRevealing) return;
+
+    if(charIdx < text.length){
+      const char = text[charIdx];
+      lineEl.textContent += char;
+      charIdx++;
+
+      if(bootTerminal){
+        bootTerminal.scrollTop = bootTerminal.scrollHeight;
+      }
+
+      if(charIdx % 3 === 1 && char !== ' '){
+        playTypingBeep();
+      }
+
+      let speed = 20;
+      if(char === '.' || char === '?' || char === '!' || char === '—'){
+        speed = 90;
+      } else if(char === ','){
+        speed = 50;
+      }
+
+      activeTypingTimeoutId = setTimeout(typeChar, speed);
+    } else {
+      const endPause = lineItem.type === 'system-head' ? 240 : (lineItem.type === 'system-dim' ? 320 : 280);
+      narrativeTimeoutId = setTimeout(onComplete, endPause);
+    }
+  }
+
+  typeChar();
 }
 
 function playNarrativeSequence(index = 0){
@@ -1941,14 +1991,9 @@ function playNarrativeSequence(index = 0){
   }
 
   isNarrativeRevealing = true;
-  const item = fullNarrativeScript[index];
-  renderScriptLine(item);
-  if(item.text) playTypingBeep();
-
-  const delay = item.delay || 400;
-  narrativeTimeoutId = setTimeout(()=>{
+  typeLineLetterByLetter(fullNarrativeScript[index], ()=>{
     playNarrativeSequence(index + 1);
-  }, delay);
+  });
 }
 
 function showBootNarrativeModal(){
@@ -1956,29 +2001,18 @@ function showBootNarrativeModal(){
   bootOverlay.style.display = 'flex';
   beep(740, 0.08, 'triangle', 0.04);
 
-  const hasVisited = localStorage.getItem(NARRATIVE_STORAGE_KEY) === 'true';
-
   if(bootLogEl) bootLogEl.innerHTML = '';
   if(bootActionsEl) bootActionsEl.style.display = 'none';
 
-  if(hasVisited){
-    // Returning visitor: show short version immediately
-    isNarrativeRevealing = false;
-    returningNarrativeScript.forEach(line => renderScriptLine(line));
-    showNarrativeActions();
-  } else {
-    // First-time visitor: typewriter reveal
-    playNarrativeSequence(0);
-  }
+  // Always play letter-by-letter typewriter narrative on every reload
+  playNarrativeSequence(0);
 }
 
 function dismissBootNarrativeModal(){
   if(!bootOverlay) return;
   clearTimeout(narrativeTimeoutId);
+  clearTimeout(activeTypingTimeoutId);
   isNarrativeRevealing = false;
-  try {
-    localStorage.setItem(NARRATIVE_STORAGE_KEY, 'true');
-  } catch(e){}
 
   bootOverlay.style.animation = 'overlay-fade .2s ease reverse forwards';
   if(bootModal) bootModal.style.animation = 'popup-in .2s ease reverse forwards';
