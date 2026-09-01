@@ -88,6 +88,158 @@ const CONFIG = {
     { year: "2025", label: "Higher Secondary Completion", city: "Modern Public School", lat: 20.2961, lon: 85.8245, emoji: "🎓", desc: "Completed senior secondary education focusing on Sciences & Computer Science." },
     { year: "2025", label: "Sentinel-One & IEEE Paper", city: "IoT & Security Lab", lat: 31.2554, lon: 75.7050, emoji: "🛡️", desc: "Engineered ESP32 intrusion detection system and co-authored IEEE research paper." },
     { year: "2026", label: "B.Tech CSE @ LPU & Okpythion", city: "Lovely Professional University", lat: 31.2530, lon: 75.7037, emoji: "📍", desc: "Studying B.Tech CSE, building PyDude AI agent and full-stack software systems." }
+  ],
+  education: [
+    {
+      id: "btech",
+      category: "undergrad",
+      level: "Undergraduate Degree",
+      degree: "Bachelor of Technology — Computer Science & Engineering",
+      institution: "Lovely Professional University",
+      shortInst: "LPU Punjab",
+      location: "Phagwara / Jalandhar, Punjab, India",
+      period: "Aug 2026 – Present",
+      status: "Active / In Progress",
+      statusType: "active",
+      score: "Undergraduate Scholar",
+      summary: "Pursuing B.Tech in Computer Science and Engineering, focusing on building practical software systems across full-stack development, AI-powered applications, and IoT.",
+      coursework: [
+        "Data Structures & Algorithms",
+        "Object-Oriented Programming (OOP)",
+        "Database Management Systems (PostgreSQL)",
+        "Operating Systems & Architecture",
+        "Computer Networks",
+        "Microcontroller Programming (ESP32)",
+        "Full-Stack Web Engineering"
+      ],
+      highlights: [
+        "Maintaining high academic and practical engineering performance across software architecture, data structures, and distributed systems.",
+        "Engineered okpython (PyDude AI Tutor) — incorporating autonomous Gemini API debug agent mode and Pyodide WASM in-browser execution.",
+        "Developed Sentinel-One IoT perimeter intrusion surveillance system with ESP32 microcontrollers, WebSockets, and HiveMQ MQTT broker.",
+        "Co-authored research paper on multi-domain sensor fusion architecture submitted for IEEE conference publication.",
+        "Cultivated production-grade skills across Next.js, React, Node.js, PostgreSQL, C++, and cloud deployment pipelines."
+      ],
+      projects: [
+        { name: "okpython (PyDude AI Tutor)", desc: "Interactive Python platform with in-browser WASM runtime & Gemini AI debug agent." },
+        { name: "Sentinel-One IoT System", desc: "Multi-domain physical perimeter intrusion detection with live WebSockets (<50ms)." },
+        { name: "Ambika Agency Web & Brand", desc: "High-performance business web app with 98+ Lighthouse score." }
+      ],
+      skills: ["Python", "C++", "Next.js", "React", "Node.js", "PostgreSQL", "Pyodide WASM", "ESP32", "MQTT (HiveMQ)", "WebSockets", "Gemini API", "Tailwind CSS"]
+    },
+    {
+      id: "senior_secondary",
+      category: "senior_sec",
+      level: "Senior Secondary (Class XII)",
+      degree: "Higher Secondary Education — Science & Computer Science",
+      institution: "Modern Public School",
+      shortInst: "MPS Odisha",
+      location: "Odisha, India",
+      period: "May 2024 – Mar 2025",
+      status: "Completed",
+      statusType: "completed",
+      score: "Science & CS Stream",
+      summary: "Completed Senior Secondary Education focusing on Sciences (Physics, Chemistry, Mathematics) and Computer Science, establishing strong algorithmic and STEM foundations.",
+      coursework: [
+        "Advanced Calculus & Algebra",
+        "Mechanics & Electromagnetism",
+        "Physical & Organic Chemistry",
+        "Python Programming Fundamentals",
+        "Data Representation & Logic Design"
+      ],
+      highlights: [
+        "Built a solid foundation in computational thinking, programming fundamentals in Python and C++, and analytical problem solving.",
+        "Mastered advanced mathematics and physics principles applied to computational simulation and software logic.",
+        "Led and managed 4XT competitive BGMI esports organization, coordinating roster strategies, zone rotation analytics, and tournament operations.",
+        "Participated actively in computing clubs and science showcases."
+      ],
+      projects: [
+        { name: "4XT Esports Organization Platform", desc: "Tournament coordination, roster metrics, and tactical scrim analytics." },
+        { name: "Algorithmic Computing Models", desc: "Python-based mathematical problem solvers and logic applications." }
+      ],
+      skills: ["Python", "C++", "Mathematical Modeling", "Problem Solving", "Team Leadership", "Analytics"]
+    },
+    {
+      id: "secondary",
+      category: "highschool",
+      level: "Secondary School (Class X)",
+      degree: "Secondary School Examination — High School Distinction",
+      institution: "Modern Public School",
+      shortInst: "MPS Odisha",
+      location: "Odisha, India",
+      period: "May 2022 – Mar 2023",
+      status: "Distinction — 90.2%",
+      statusType: "distinction",
+      score: "90.2% Aggregate Distinction",
+      summary: "Graduated secondary school examination with academic distinction, achieving 90.2% aggregate across all core STEM and academic disciplines.",
+      coursework: [
+        "Mathematics & Geometry",
+        "Physics, Chemistry & Biology",
+        "Computer Applications & Logic",
+        "English Language & Literature",
+        "Social Sciences"
+      ],
+      highlights: [
+        "Graduated secondary school examination with academic distinction, achieving a stellar 90.2% aggregate score.",
+        "Demonstrated academic excellence across core STEM subjects and computational logic.",
+        "Actively participated in science exhibitions, mathematics Olympiads, and computing quizzes.",
+        "Initiated self-directed learning into programming logic, web markup, and computer hardware."
+      ],
+      projects: [
+        { name: "STEM Exhibition Exhibits", desc: "Science models and algorithmic computing demonstrations." },
+        { name: "Academic Merit Honor Roll", desc: "Distinction ranking across high school examinations." }
+      ],
+      skills: ["Mathematics", "STEM Fundamentals", "Computer Fundamentals", "Logic Design", "Scientific Problem Solving"]
+    }
+  ],
+  certificates: [
+    {
+      id: 1,
+      title: "Oracle Certified Foundations Associate — Agentic AI",
+      issuer: "Oracle University",
+      date: "2026",
+      credentialId: "ORCL-AGENTIC-AI-2026",
+      category: "AI & ML",
+      icon: "🤖",
+      description: "Autonomous agent architectures, LLM reasoning patterns, tool calling, schema generation, prompt caching, and enterprise multi-agent workflows.",
+      skills: ["Agentic AI", "Oracle Cloud", "LLM Reasoning", "Prompt Engineering"],
+      href: "https://education.oracle.com/"
+    },
+    {
+      id: 2,
+      title: "Infosys Springboard — Python Graduate",
+      issuer: "Infosys Springboard",
+      date: "2024",
+      credentialId: "INFY-PY-2024-GRAD",
+      category: "Core Eng",
+      icon: "🐍",
+      description: "Advanced Python programming, data structures, algorithm optimization, object-oriented software design, and memory efficiency.",
+      skills: ["Python", "Algorithms", "Data Structures", "OOP"],
+      href: "https://infyspringboard.onwingspan.com/"
+    },
+    {
+      id: 3,
+      title: "Multi-Domain IoT & Sensor Fusion Research",
+      issuer: "IEEE Computer Society & LPU",
+      date: "2025",
+      credentialId: "IEEE-IOT-2025-PIRI",
+      category: "IoT & Systems",
+      icon: "🛡️",
+      description: "Real-time sensor arrays, ESP32 dual-core microcontroller firmware, low-latency WebSocket / MQTT telemetry pipelines, and hardware debugging.",
+      skills: ["ESP32 / C++", "MQTT (HiveMQ)", "WebSockets", "Sensor Fusion"],
+      href: "https://www.ieee.org/"
+    },
+    {
+      id: 4,
+      title: "Full-Stack Web Development & Modern React",
+      issuer: "Lovely Professional University",
+      date: "2025",
+      credentialId: "LPU-CSE-FSWD-2025",
+      category: "Full-Stack",
+      icon: "⚛️",
+      description: "Modern SPA engineering, React 19 component architecture, state management, REST & WebSocket integration, and Tailwind CSS design systems.",
+      skills: ["React.js", "Next.js", "JavaScript ES6+", "TailwindCSS"],
+      href: "https://www.lpu.in/"
+    }
   ]
 };
 
@@ -400,8 +552,258 @@ if(copyEmailBtn){
   });
 }
 
+function renderEducation(){
+  const el = document.getElementById('education-body');
+  if(!el) return;
+
+  const eduData = CONFIG.education || [];
+  const certData = CONFIG.certificates || [];
+
+  let activeFilter = 'all';
+
+  function buildHtml(){
+    const filteredEdu = activeFilter === 'all' 
+      ? eduData 
+      : (activeFilter === 'certs' ? [] : eduData.filter(e => e.category === activeFilter || e.id === activeFilter));
+
+    const showCerts = activeFilter === 'all' || activeFilter === 'certs';
+
+    return `
+      <!-- Breadcrumb & Header -->
+      <div class="edu-folder-nav">
+        <div class="edu-breadcrumb">
+          <span>📁 Root</span>
+          <span class="slash">/</span>
+          <span>CV_Records</span>
+          <span class="slash">/</span>
+          <b>Education_Folder</b>
+        </div>
+        <div style="font-family:var(--font-mono); font-size:9.5px; color:#aa4535;">
+          ● 3 Verified Records · 4 Credentials
+        </div>
+      </div>
+
+      <!-- Quick Stats Ribbon -->
+      <div class="edu-stats-banner">
+        <div class="edu-stat-box">
+          <div class="edu-stat-lbl">Current Standing</div>
+          <div class="edu-stat-val" style="font-size:14px;">B.Tech CSE</div>
+          <div class="edu-stat-sub">Lovely Professional Univ.</div>
+        </div>
+        <div class="edu-stat-box">
+          <div class="edu-stat-lbl">Secondary Exam</div>
+          <div class="edu-stat-val">90.2%</div>
+          <div class="edu-stat-sub">Academic Distinction</div>
+        </div>
+        <div class="edu-stat-box">
+          <div class="edu-stat-lbl">Primary Disciplines</div>
+          <div class="edu-stat-val" style="font-size:13px;">AI, Full-Stack &amp; IoT</div>
+          <div class="edu-stat-sub">Applied Systems &amp; WASM</div>
+        </div>
+        <div class="edu-stat-box">
+          <div class="edu-stat-lbl">Scholastic Output</div>
+          <div class="edu-stat-val" style="font-size:14px;">IEEE Paper + AI Tutor</div>
+          <div class="edu-stat-sub">okpython &amp; Sentinel-One</div>
+        </div>
+      </div>
+
+      <!-- Interactive Filter Tabs -->
+      <div class="edu-filter-tabs">
+        <button class="edu-tab-btn${activeFilter==='all'?' active':''}" data-filter="all">📂 All Academic Records</button>
+        <button class="edu-tab-btn${activeFilter==='undergrad'?' active':''}" data-filter="undergrad">🎓 B.Tech CSE (LPU)</button>
+        <button class="edu-tab-btn${activeFilter==='senior_sec'?' active':''}" data-filter="senior_sec">🏛️ Class XII (PCM + CS)</button>
+        <button class="edu-tab-btn${activeFilter==='highschool'?' active':''}" data-filter="highschool">🏫 Class X (90.2% Distinction)</button>
+        <button class="edu-tab-btn${activeFilter==='certs'?' active':''}" data-filter="certs">📜 Verified Certifications (${certData.length})</button>
+      </div>
+
+      <!-- Education Cards List -->
+      <div class="edu-cards-list">
+        ${filteredEdu.map(e => `
+          <div class="edu-card" data-category="${e.category}">
+            <div class="edu-card-top">
+              <div class="edu-card-title-group">
+                <div class="edu-card-inst">
+                  <span>🏛️</span> ${e.institution} · <span style="color:var(--ink-dim);">${e.level}</span>
+                </div>
+                <div class="edu-card-degree">${e.degree}</div>
+              </div>
+              <div class="edu-card-badge-group">
+                <span class="edu-date-badge">${e.period}</span>
+                <span class="edu-status-pill ${e.statusType === 'distinction' ? 'distinction' : ''}">
+                  ${e.statusType === 'active' ? '● ' : '✓ '} ${e.status}
+                </span>
+              </div>
+            </div>
+
+            <div class="edu-card-loc">📍 ${e.location}</div>
+
+            <div class="edu-card-details">
+              <p>${e.summary}</p>
+              
+              <div style="font-family:var(--font-mono); font-size:9.5px; color:#aa4535; text-transform:uppercase; margin-top:8px; letter-spacing:0.8px;">
+                // Key Coursework &amp; Subject Mastery:
+              </div>
+              <div class="edu-course-grid">
+                ${e.coursework.map(c => `<span class="edu-course-tag">${c}</span>`).join('')}
+              </div>
+
+              <div style="font-family:var(--font-mono); font-size:9.5px; color:#aa4535; text-transform:uppercase; margin-top:12px; letter-spacing:0.8px;">
+                // Academic Highlights &amp; Practical Systems:
+              </div>
+              <ul class="edu-bullet-list">
+                ${e.highlights.map(h => `<li>${h}</li>`).join('')}
+              </ul>
+
+              ${e.projects && e.projects.length ? `
+                <div class="edu-projects-box">
+                  <div class="edu-proj-lbl">⚡ Applied Projects &amp; Research During Term:</div>
+                  ${e.projects.map(p => `
+                    <div class="edu-proj-item">
+                      <b>• ${p.name}:</b> ${p.desc}
+                    </div>
+                  `).join('')}
+                </div>
+              ` : ''}
+            </div>
+
+            <div class="edu-card-footer">
+              <span style="font-family:var(--font-mono); font-size:9px; color:var(--ink-dim);">Skills Cultivated:</span>
+              <div class="edu-skills-tags">
+                ${e.skills.map(s => `<span class="edu-skill-chip">${s}</span>`).join('')}
+              </div>
+            </div>
+          </div>
+        `).join('')}
+
+        <!-- Certifications sub-view when relevant -->
+        ${showCerts ? `
+          <div style="margin-top:10px;">
+            <div class="h-eyebrow">// verified academic credentials &amp; certifications</div>
+            <div class="h-title" style="font-size:22px; margin-bottom:12px;">Certifications Ledger</div>
+            <div class="certs-grid">
+              ${certData.map(c => `
+                <div class="cert-card">
+                  <div>
+                    <div class="cert-head">
+                      <div class="cert-icon">${c.icon || '🎓'}</div>
+                      <div class="cert-title-wrap">
+                        <div class="cert-issuer">${c.issuer} · ${c.date}</div>
+                        <div class="cert-title">${c.title}</div>
+                      </div>
+                    </div>
+                    <div class="cert-desc">${c.description}</div>
+                  </div>
+                  <div>
+                    <div class="edu-skills-tags" style="margin-bottom:10px;">
+                      ${c.skills.map(s => `<span class="edu-skill-chip">${s}</span>`).join('')}
+                    </div>
+                    <div class="cert-footer">
+                      <span class="cert-id-tag">${c.credentialId}</span>
+                      <a href="${c.href}" target="_blank" rel="noopener noreferrer" style="color:#aa4535; font-weight:bold; text-decoration:none;">Verify ↗</a>
+                    </div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        ` : ''}
+      </div>
+
+      <!-- Action Footer -->
+      <div class="edu-action-bar">
+        <a href="${CONFIG.resumeUrl}" target="_blank" class="edu-action-btn">
+          <span>📄</span> View Full CV / GitHub Profile ↗
+        </a>
+        <button class="edu-action-btn" id="edu-open-about" style="background:#f1dfb8; color:#60462f; border-color:#b99b68;">
+          <span>🧑‍💻</span> Open About Me
+        </button>
+        <button class="edu-action-btn" id="edu-open-map" style="background:#f1dfb8; color:#60462f; border-color:#b99b68;">
+          <span>🗺️</span> View Life Journey Map
+        </button>
+      </div>
+    `;
+  }
+
+  function attachEvents(){
+    el.querySelectorAll('.edu-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeFilter = btn.dataset.filter;
+        render();
+        beep(520, 0.03, 'square', 0.02);
+      });
+    });
+
+    const openAboutBtn = el.querySelector('#edu-open-about');
+    if(openAboutBtn){
+      openAboutBtn.addEventListener('click', () => openApp('about'));
+    }
+
+    const openMapBtn = el.querySelector('#edu-open-map');
+    if(openMapBtn){
+      openMapBtn.addEventListener('click', () => openApp('map'));
+    }
+  }
+
+  function render(){
+    el.innerHTML = buildHtml();
+    attachEvents();
+  }
+
+  render();
+}
+
+function renderCerts(){
+  const el = document.getElementById('certs-body');
+  if(!el) return;
+  const certData = CONFIG.certificates || [];
+  el.innerHTML = `
+    <div class="h-eyebrow">// credentials &amp; achievements</div>
+    <div class="h-title">Certificates</div>
+    <p style="font-size:13px; color:var(--ink-soft); margin-bottom:16px;">
+      Verified credentials and academic certifications earned by ${CONFIG.name}.
+    </p>
+    <div class="certs-grid">
+      ${certData.map(c => `
+        <div class="cert-card">
+          <div>
+            <div class="cert-head">
+              <div class="cert-icon">${c.icon || '🎓'}</div>
+              <div class="cert-title-wrap">
+                <div class="cert-issuer">${c.issuer} · ${c.date}</div>
+                <div class="cert-title">${c.title}</div>
+              </div>
+            </div>
+            <div class="cert-desc">${c.description}</div>
+          </div>
+          <div>
+            <div class="edu-skills-tags" style="margin-bottom:10px;">
+              ${c.skills.map(s => `<span class="edu-skill-chip">${s}</span>`).join('')}
+            </div>
+            <div class="cert-footer">
+              <span class="cert-id-tag">${c.credentialId}</span>
+              <a href="${c.href}" target="_blank" rel="noopener noreferrer" style="color:#aa4535; font-weight:bold; text-decoration:none;">Verify ↗</a>
+            </div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+    <div class="edu-action-bar" style="margin-top:16px;">
+      <button class="edu-action-btn" id="certs-open-edu">
+        <span>📁</span> Open Full Education Folder
+      </button>
+    </div>
+  `;
+
+  const openEduBtn = el.querySelector('#certs-open-edu');
+  if(openEduBtn){
+    openEduBtn.addEventListener('click', () => openApp('education'));
+  }
+}
+
 renderAbout(); 
+renderEducation();
 renderProjects(); 
+renderCerts();
 renderLinks();
 initSpotifyApp();
 
@@ -518,7 +920,6 @@ function focusWindow(win){
   win.classList.add('focused');
 }
 function openApp(name){
-  if(name === 'upgrade'){ shiftTo2026(); return; }
   const win = windows[name];
   if(!win) return;
   win.classList.remove('minimized');
@@ -656,6 +1057,8 @@ const commands = {
   help: ()=> `<span class="accent">Available commands:</span>
   help        show this list
   about       who is ${CONFIG.name}?
+  education   view academic qualifications & detailed CV records
+  certs       view verified credentials & certificates
   projects    list selected projects
   music       open retro music player (e.g. "music 80s", "music bollywood", "music 70s")
   contact     show contact links & email
@@ -672,6 +1075,19 @@ const commands = {
   clear       clear terminal screen
   sudo [x]    admin elevation`,
   about: ()=> `${CONFIG.name} — ${CONFIG.tagline}\n${CONFIG.bio.join(' ')}`,
+  education: ()=> {
+    openApp('education');
+    return `Opening Education Folder & CV Academic Ledger...\n• B.Tech CSE @ Lovely Professional University (Aug 2026–Present)\n• Senior Secondary XII @ Modern Public School (May 2024–Mar 2025)\n• Secondary X Distinction (90.2%) @ Modern Public School (May 2022–Mar 2023)`;
+  },
+  edu: ()=> commands.education(),
+  academic: ()=> commands.education(),
+  academics: ()=> commands.education(),
+  cv: ()=> commands.education(),
+  certs: ()=> {
+    openApp('certs');
+    return `Opening Certificates Ledger...\n• Oracle Certified Foundations Associate — Agentic AI (2026)\n• Infosys Springboard — Python Graduate (2024)\n• Multi-Domain IoT & Sensor Fusion Research (IEEE & LPU, 2025)\n• Full-Stack Web Development & Modern React (LPU, 2025)`;
+  },
+  certificates: ()=> commands.certs(),
   projects: ()=> CONFIG.projects.map(p=>`• ${p.title} (${p.year}) [${p.tag}] — ${p.desc}`).join('\n\n'),
   music: (arg)=> {
     openApp('spotify');
@@ -1058,6 +1474,7 @@ const contextMenu = document.getElementById('context-menu');
 
 const commandItems = [
   {app:'about', icon:'🧑‍💻', title:'About Me', note:'Profile, background, LPU education & skills'},
+  {app:'education', icon:'📁', title:'Education Folder', note:'B.Tech CSE @ LPU, Senior Secondary XII, High School (90.2% Distinction) & CV records'},
   {app:'projects', icon:'🗂️', title:'Projects', note:'Okpythion (AI tutor), Ambika Agency, Sentinel-One'},
   {app:'spotify', icon:'📻', title:'Retro Music', note:'70s Disco, 80s Pop/Rock, 90s Grunge, 2000s Y2K & Bollywood Classics'},
   {app:'certs', icon:'🎓', title:'Certificates', note:'Credentials, course completions & achievements'},
@@ -1410,7 +1827,7 @@ const upgradeTopbarBtn  = document.getElementById('upgrade-topbar-btn');
 const startUpgradeBtn   = document.getElementById('start-upgrade-btn');
 
 function shiftTo2026(){
-  window.location.href = '/2026.html';
+  window.location.href = 'http://localhost:5173';
 }
 
 if(upgradeTopbarBtn){

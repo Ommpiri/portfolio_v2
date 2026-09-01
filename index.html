@@ -45,6 +45,7 @@
   <div id="snap-guide" aria-hidden="true"></div>
   <div class="icon-grid">
     <button class="desk-icon" data-app="about"><span class="glyph">🧑‍💻</span><span>About_Me</span></button>
+    <button class="desk-icon" data-app="education"><span class="glyph">📁</span><span>Education</span></button>
     <button class="desk-icon" data-app="projects"><span class="glyph">🗂️</span><span>Projects</span></button>
     <button class="desk-icon" data-app="spotify"><span class="glyph">📻</span><span>Music</span></button>
     <button class="desk-icon" data-app="contact"><span class="glyph">📡</span><span>Contact</span></button>
@@ -79,6 +80,18 @@
       <div class="win-title">about_me.app</div>
     </div>
     <div class="win-body" id="about-body"></div>
+    <div class="resize-handle"></div>
+  </div>
+
+  <!-- ===== WINDOW: EDUCATION FOLDER ===== -->
+  <div class="window" data-win="education" style="width:750px; height:540px; top:65px; left:130px;">
+    <div class="win-titlebar">
+      <div class="traffic"><button class="tf-close" data-action="close"></button><button class="tf-min" data-action="min"></button><button class="tf-max" data-action="max"></button></div>
+      <div class="win-title">education_folder.app</div>
+    </div>
+    <div class="win-body education-win-body" id="education-body">
+      <!-- Populated dynamically by renderEducation() from CV data -->
+    </div>
     <div class="resize-handle"></div>
   </div>
 
@@ -375,6 +388,7 @@
 <div id="dock-wrap">
   <div id="dock">
     <button class="dock-btn" data-app="about" title="About"><span>🧑‍💻</span><span class="tip">About Me</span></button>
+    <button class="dock-btn" data-app="education" title="Education Folder"><span>📁</span><span class="tip">Education</span></button>
     <button class="dock-btn" data-app="projects" title="Projects"><span>🗂️</span><span class="tip">Projects</span></button>
     <button class="dock-btn" data-app="spotify" title="Retro Music"><span>📻</span><span class="tip">Retro Music</span></button>
     <button class="dock-btn" data-app="gallery" title="Photo Gallery"><span>🖼️</span><span class="tip">Photo Gallery</span></button>
@@ -414,7 +428,7 @@
   </div>
 </div>
 
-<div class="context-menu" id="context-menu"><button data-context="search">Open command palette</button><button data-context="gallery">Open photo gallery</button><button data-context="about">Open profile</button><button data-context="projects">Browse work</button><button data-context="spotify">Open Retro Music</button><button data-context="games">Open Retro Games</button><hr><button data-context="close">Close all windows</button></div>
+<div class="context-menu" id="context-menu"><button data-context="search">Open command palette</button><button data-context="education">Open Education Folder</button><button data-context="gallery">Open photo gallery</button><button data-context="about">Open profile</button><button data-context="projects">Browse work</button><button data-context="spotify">Open Retro Music</button><button data-context="games">Open Retro Games</button><hr><button data-context="close">Close all windows</button></div>
 
 
 
