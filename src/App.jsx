@@ -3,6 +3,7 @@ import Navbar from "./sections/Navbar";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
 import Projects from "./sections/Projects";
+import Trainings from "./sections/Trainings";
 import Certificates from "./sections/Certificates";
 import Experiences from "./sections/Experiences";
 import Contact from "./sections/Contact";
@@ -15,6 +16,7 @@ const App = () => {
       <Hero />
       <About />
       <Projects />
+      <Trainings />
       <Certificates />
       <Experiences />
       <Contact />

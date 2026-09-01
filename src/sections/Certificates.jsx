@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { certificates } from "../constants";
 
-const categories = ["All", "AI & ML", "Full-Stack", "IoT & Systems", "Core Eng"];
+const categories = ["All", ...Array.from(new Set(certificates.map((c) => c.category)))];
 
 const getCertIcon = (type) => {
   switch (type) {

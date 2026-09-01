@@ -219,18 +219,6 @@ const CONFIG = {
     },
     {
       id: 3,
-      title: "Multi-Domain IoT & Sensor Fusion Research",
-      issuer: "IEEE Computer Society & LPU",
-      date: "2025",
-      credentialId: "IEEE-IOT-2025-PIRI",
-      category: "IoT & Systems",
-      icon: "🛡️",
-      description: "Real-time sensor arrays, ESP32 dual-core microcontroller firmware, low-latency WebSocket / MQTT telemetry pipelines, and hardware debugging.",
-      skills: ["ESP32 / C++", "MQTT (HiveMQ)", "WebSockets", "Sensor Fusion"],
-      href: "https://www.ieee.org/"
-    },
-    {
-      id: 4,
       title: "Full-Stack Web Development & Modern React",
       issuer: "Lovely Professional University",
       date: "2025",
@@ -1104,7 +1092,7 @@ const commands = {
   cv: ()=> commands.education(),
   certs: ()=> {
     openApp('certs');
-    return `Opening Certificates Ledger...\n• Oracle Certified Foundations Associate — Agentic AI (2026)\n• Infosys Springboard — Python Graduate (2024)\n• Multi-Domain IoT & Sensor Fusion Research (IEEE & LPU, 2025)\n• Full-Stack Web Development & Modern React (LPU, 2025)`;
+    return `Opening Certificates Ledger...\n• Oracle Certified Foundations Associate — Agentic AI (2026)\n• Infosys Springboard — Python Graduate (2024)\n• Full-Stack Web Development & Modern React (LPU, 2025)`;
   },
   certificates: ()=> commands.certs(),
   projects: ()=> CONFIG.projects.map(p=>`• ${p.title} (${p.year}) [${p.tag}] — ${p.desc}`).join('\n\n'),

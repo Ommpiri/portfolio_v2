@@ -67,26 +67,6 @@ export const myProjects = [
   },
   {
     id: 4,
-    title: "4XT Esports Organization Platform",
-    description:
-      "Operational management and tournament strategy system for competitive BGMI team roster coordination and analytics.",
-    subDescription: [
-      "Led and managed 4XT competitive gaming organization across tournament execution and team coordination.",
-      "Created structured scrim analytics tracking player performance, zone rotations, and kill/death metrics.",
-      "Coordinated live tournament participation, strategic map positioning, and team operations.",
-    ],
-    href: "",
-    github: "",
-    logo: "",
-    image: "/assets/projects/4xt-esports.jpg",
-    tags: [
-      { id: 1, name: "Team Strategy", path: "/assets/logos/github.svg" },
-      { id: 2, name: "Analytics", path: "/assets/logos/vitejs.svg" },
-      { id: 3, name: "Operations", path: "/assets/logos/git.svg" },
-    ],
-  },
-  {
-    id: 5,
     title: "OMM_OS Personal Operating System",
     description:
       "Interactive browser-based desktop operating system portfolio with window management, terminal shell, weather, life map, and Spotify Web Player.",
@@ -109,11 +89,101 @@ export const myProjects = [
   },
 ];
 
+export const myTrainings = [
+  {
+    id: 1,
+    title: "4XT Esports — Team Operations & Strategic Leadership",
+    description:
+      "Comprehensive competitive gaming team management, tactical scrim coordination, and data-driven esports analytics.",
+    subDescription: [
+      "Led and managed 4XT competitive gaming organization across tournament execution and team coordination.",
+      "Created structured scrim analytics tracking player performance, zone rotations, and kill/death metrics.",
+      "Coordinated live tournament participation, strategic map positioning, and team operations.",
+      "Developed high-pressure decision-making, strategic roadmap execution, and team mentorship practices.",
+    ],
+    href: "",
+    github: "",
+    logo: "",
+    image: "/assets/projects/4xt-esports.jpg",
+    tags: [
+      { id: 1, name: "Leadership", path: "/assets/logos/github.svg" },
+      { id: 2, name: "Esports Analytics", path: "/assets/logos/vitejs.svg" },
+      { id: 3, name: "Team Operations", path: "/assets/logos/git.svg" },
+    ],
+  },
+  {
+    id: 2,
+    title: "Infosys Springboard — Python Graduate & Advanced Engineering",
+    description:
+      "Intensive software engineering training covering core algorithms, object-oriented design, algorithmic optimization, and data structures.",
+    subDescription: [
+      "Completed comprehensive curriculum covering Python fundamentals, OOP principles, and advanced data structures.",
+      "Trained on algorithmic complexity optimization (Time/Space complexity) and memory-efficient data manipulation.",
+      "Implemented clean code design patterns and modular software architecture test suites.",
+      "Earned verified credential INFY-PY-2024-GRAD recognized by Infosys Springboard.",
+    ],
+    href: "https://infyspringboard.onwingspan.com/",
+    github: "",
+    logo: "",
+    image: "",
+    tags: [
+      { id: 1, name: "Python", path: "/assets/logos/cplusplus.svg" },
+      { id: 2, name: "OOP Design", path: "/assets/logos/javascript.svg" },
+      { id: 3, name: "Data Structures", path: "/assets/logos/git.svg" },
+      { id: 4, name: "Algorithms", path: "/assets/logos/vitejs.svg" },
+    ],
+  },
+  {
+    id: 3,
+    title: "Oracle University — Agentic AI & LLM Systems Engineering",
+    description:
+      "Enterprise training on autonomous LLM agent architectures, tool use, schema generation, prompt caching, and multi-agent workflows.",
+    subDescription: [
+      "Mastered autonomous reasoning loops, function calling schemas, and structured output evaluation.",
+      "Designed and deployed enterprise multi-agent workflows leveraging Oracle Cloud Infrastructure.",
+      "Trained in prompt optimization, context window compression techniques, and prompt caching patterns.",
+      "Earned Oracle Certified Foundations Associate credential (ORCL-AGENTIC-AI-2026).",
+    ],
+    href: "https://education.oracle.com/",
+    github: "",
+    logo: "",
+    image: "",
+    tags: [
+      { id: 1, name: "Agentic AI", path: "/assets/logos/javascript.svg" },
+      { id: 2, name: "Oracle Cloud", path: "/assets/logos/azure.svg" },
+      { id: 3, name: "LLM Reasoning", path: "/assets/logos/react.svg" },
+      { id: 4, name: "Prompt Eng", path: "/assets/logos/html5.svg" },
+    ],
+  },
+  {
+    id: 4,
+    title: "Lovely Professional University — Full-Stack Web Development & Modern React",
+    description:
+      "Hands-on professional web development training on modern single-page applications, component lifecycles, and API integration.",
+    subDescription: [
+      "Built modern frontend architectures using React component trees, hooks, custom state management, and Tailwind CSS design systems.",
+      "Integrated RESTful APIs and real-time WebSocket communication pipelines.",
+      "Trained on performance optimization, lazy loading, SEO metadata, and responsive mobile-first UI paradigms.",
+      "Earned LPU institutional engineering credential (LPU-CSE-FSWD-2025).",
+    ],
+    href: "https://www.lpu.in/",
+    github: "",
+    logo: "",
+    image: "",
+    tags: [
+      { id: 1, name: "React.js", path: "/assets/logos/react.svg" },
+      { id: 2, name: "Next.js", path: "/assets/logos/react.svg" },
+      { id: 3, name: "TailwindCSS", path: "/assets/logos/tailwindcss.svg" },
+      { id: 4, name: "WebSockets", path: "/assets/logos/vitejs.svg" },
+    ],
+  },
+];
+
 export const mySocials = [
   {
     name: "GitHub",
     href: "https://github.com/Ommpiri",
-    icon: "/assets/socials/git.svg",
+    icon: "/assets/socials/github.svg",
   },
   {
     name: "LinkedIn",
@@ -121,9 +191,14 @@ export const mySocials = [
     icon: "/assets/socials/linkedIn.svg",
   },
   {
+    name: "WhatsApp",
+    href: "https://wa.me/918249587790",
+    icon: "/assets/socials/whatsApp.svg",
+  },
+  {
     name: "Email",
     href: "mailto:ommpiri21@gmail.com",
-    icon: "/assets/socials/whatsApp.svg",
+    icon: "/assets/socials/email.svg",
   },
 ];
 
@@ -189,19 +264,6 @@ export const certificates = [
   },
   {
     id: 3,
-    title: "Multi-Domain IoT & Sensor Fusion Research",
-    issuer: "IEEE Computer Society & LPU",
-    date: "2025",
-    credentialId: "IEEE-IOT-2025-PIRI",
-    category: "IoT & Systems",
-    iconType: "iot",
-    description:
-      "Real-time sensor arrays, ESP32 dual-core microcontroller firmware, low-latency WebSocket / MQTT telemetry pipelines, and hardware debugging.",
-    skills: ["ESP32 / C++", "MQTT (HiveMQ)", "WebSockets", "Sensor Fusion"],
-    href: "https://www.ieee.org/",
-  },
-  {
-    id: 4,
     title: "Full-Stack Web Development & Modern React",
     issuer: "Lovely Professional University",
     date: "2025",
