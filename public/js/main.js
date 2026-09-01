@@ -1830,7 +1830,7 @@ function shiftTo2026(){
   if (window.location.protocol === 'file:') {
     window.location.href = '2026.html';
   } else {
-    window.location.href = window.location.origin + '/2026.html';
+    window.location.href = '/2026';
   }
 }
 
