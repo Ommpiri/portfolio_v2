@@ -60,25 +60,24 @@ const Contact = () => {
         refresh
       />
       {showAlert && <Alert type={alertType} text={alertMessage} />}
-      <div className="flex flex-col items-center justify-center max-w-md p-5 mx-auto border border-white/10 rounded-2xl bg-primary">
-        <div className="flex flex-col items-start w-full gap-5 mb-10">
-          <h2 className="text-heading">Let's Talk</h2>
-          <p className="font-normal text-neutral-400">
-            Whether you're looking to build a new website, improve your existing
-            platform, or bring a unique project to life, I'm here to help.
+      <div className="flex flex-col items-center justify-center max-w-md p-6 mx-auto border border-white/10 rounded-2xl bg-primary/95 backdrop-blur-xl shadow-2xl">
+        <div className="flex flex-col items-start w-full gap-3 mb-8">
+          <h2 className="text-heading">Let's Connect</h2>
+          <p className="text-sm font-normal leading-relaxed text-neutral-300">
+            Have a project in mind, an AI/full-stack collaboration, or want to discuss an opportunity? Drop a message below and let's build something remarkable.
           </p>
         </div>
         <form className="w-full" onSubmit={handleSubmit}>
           <div className="mb-5">
             <label htmlFor="name" className="feild-label">
-              Full Name
+              Your Name
             </label>
             <input
               id="name"
               name="name"
               type="text"
               className="field-input field-input-focus"
-              placeholder="John Doe"
+              placeholder="e.g. Alex Rivera"
               autoComplete="name"
               value={formData.name}
               onChange={handleChange}
@@ -87,21 +86,21 @@ const Contact = () => {
           </div>
           <div className="mb-5">
             <label htmlFor="email" className="feild-label">
-              Email
+              Email Address
             </label>
             <input
               id="email"
               name="email"
               type="email"
               className="field-input field-input-focus"
-              placeholder="JohnDoe@email.com"
+              placeholder="alex@company.com"
               autoComplete="email"
               value={formData.email}
               onChange={handleChange}
               required
             />
           </div>
-          <div className="mb-5">
+          <div className="mb-6">
             <label htmlFor="message" className="feild-label">
               Message
             </label>
@@ -111,8 +110,8 @@ const Contact = () => {
               type="text"
               rows="4"
               className="field-input field-input-focus"
-              placeholder="Share your thoughts..."
-              autoComplete="message"
+              placeholder="Tell me about your project, idea, or how we can collaborate..."
+              autoComplete="off"
               value={formData.message}
               onChange={handleChange}
               required
@@ -120,9 +119,10 @@ const Contact = () => {
           </div>
           <button
             type="submit"
-            className="w-full px-1 py-3 text-lg text-center rounded-md cursor-pointer bg-radial from-lavender to-royal hover-animation"
+            disabled={isLoading}
+            className="w-full px-4 py-3.5 text-base font-semibold text-white transition-all rounded-xl cursor-pointer bg-gradient-to-r from-[#6366f1] via-[#8b5cf6] to-[#d946ef] hover:opacity-95 hover:shadow-[0_0_20px_rgba(139,92,246,0.5)] active:scale-[0.99] disabled:opacity-50"
           >
-            {!isLoading ? "Send" : "Sending..."}
+            {!isLoading ? "Send Message ↗" : "Transmitting Message..."}
           </button>
         </form>
       </div>
