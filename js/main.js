@@ -1839,39 +1839,213 @@ if(startUpgradeBtn){
 }
 
 /* ================================================================
-   BOTTOM-LEFT UPDATE POP-UP CONTROLLER
+   ENTRY BOOT NARRATIVE MODAL CONTROLLER (2006 Retro OS)
    ================================================================ */
-const updatePopup          = document.getElementById('update-popup');
-const updatePopupClose     = document.getElementById('update-popup-close');
-const updatePopupUpgradeBtn= document.getElementById('update-popup-upgrade-btn');
-const updatePopupLaterBtn  = document.getElementById('update-popup-later-btn');
+const bootOverlay       = document.getElementById('boot-narrative-overlay');
+const bootModal         = document.getElementById('boot-narrative-modal');
+const bootCloseBtn      = document.getElementById('boot-narrative-close-btn');
+const bootTerminal      = document.getElementById('boot-narrative-terminal');
+const bootLogEl         = document.getElementById('boot-narrative-log');
+const bootCursorEl      = document.getElementById('boot-narrative-cursor');
+const bootActionsEl     = document.getElementById('boot-narrative-actions');
+const bootStayBtn       = document.getElementById('boot-stay-btn');
+const bootContinueBtn   = document.getElementById('boot-continue-btn');
+const bootSkipBtn       = document.getElementById('boot-narrative-skip-btn');
 
-function showUpdatePopup(){
-  if(!updatePopup) return;
-  updatePopup.style.display = 'flex';
-  beep(740, 0.08, 'triangle', 0.04);
+const NARRATIVE_STORAGE_KEY = 'ommos_boot_narrative_seen';
+
+const fullNarrativeScript = [
+  { type: 'system-head', text: 'OMM_OS v2006 — BOOTING...', delay: 420 },
+  { type: 'system-dim', text: 'loading dial-up... loading a boy with a dream...', delay: 600 },
+  { type: 'narrative-break' },
+  { type: 'narrative-os', text: "This is where I started.", delay: 550 },
+  { type: 'narrative-text', text: "No frameworks. No shortcuts. Just a kid who refused to wait.", delay: 650 },
+  { type: 'narrative-break' },
+  { type: 'narrative-text', text: "You're standing in 2006 right now.", delay: 550 },
+  { type: 'narrative-text', text: 'Everything since then — every late night, every "one more try" — led somewhere.', delay: 680 },
+  { type: 'narrative-break' },
+  { type: 'narrative-os', text: "I didn't move on from this version of me. I built on it.", delay: 650 },
+  { type: 'narrative-break' },
+  { type: 'narrative-question', text: "So — do you want to meet where I began?", delay: 580 },
+  { type: 'narrative-question', text: "Or see what twenty years of not giving up looks like?", delay: 500 }
+];
+
+const returningNarrativeScript = [
+  { type: 'system-head', text: 'OMM_OS v2006 // WELCOME BACK' },
+  { type: 'system-dim', text: 'session restored · 2006 vintage environment active' },
+  { type: 'narrative-text', text: "Hey. Welcome back to 2006." },
+  { type: 'narrative-question', text: "Do you want to meet where I began, or see what twenty years of not giving up looks like?" }
+];
+
+let isNarrativeRevealing = false;
+let narrativeTimeoutId = null;
+
+function playTypingBeep(){
+  if(!soundOn) return;
+  beep(880 + Math.random() * 220, 0.025, 'triangle', 0.025);
 }
 
-function dismissUpdatePopup(){
-  if(!updatePopup) return;
-  updatePopup.style.animation = 'popup-in .25s ease reverse forwards';
+function playNarrativeCompleteChime(){
+  if(!soundOn) return;
+  beep(587, 0.08, 'triangle', 0.04);
+  setTimeout(() => beep(880, 0.12, 'triangle', 0.04), 90);
+}
+
+function renderScriptLine(lineData){
+  if(!bootLogEl) return;
+  const line = document.createElement('div');
+  line.className = `boot-log-line ${lineData.type || ''}`;
+  if(lineData.text) {
+    line.textContent = lineData.text;
+  }
+  bootLogEl.appendChild(line);
+  if(bootTerminal) {
+    bootTerminal.scrollTop = bootTerminal.scrollHeight;
+  }
+}
+
+function finishNarrativeInstantly(){
+  if(!isNarrativeRevealing) return;
+  clearTimeout(narrativeTimeoutId);
+  isNarrativeRevealing = false;
+
+  if(bootLogEl){
+    bootLogEl.innerHTML = '';
+    fullNarrativeScript.forEach(line => renderScriptLine(line));
+  }
+  showNarrativeActions();
+}
+
+function showNarrativeActions(){
+  if(bootActionsEl){
+    bootActionsEl.style.display = 'flex';
+  }
+  if(bootCursorEl){
+    bootCursorEl.style.display = 'inline-block';
+  }
+  playNarrativeCompleteChime();
+  try {
+    localStorage.setItem(NARRATIVE_STORAGE_KEY, 'true');
+  } catch(e){}
+
   setTimeout(()=>{
-    updatePopup.style.display = 'none';
-    updatePopup.style.animation = '';
-  }, 260);
+    if(bootStayBtn) bootStayBtn.focus();
+  }, 100);
 }
 
-if(updatePopupClose) updatePopupClose.addEventListener('click', dismissUpdatePopup);
-if(updatePopupLaterBtn) updatePopupLaterBtn.addEventListener('click', dismissUpdatePopup);
+function playNarrativeSequence(index = 0){
+  if(index >= fullNarrativeScript.length){
+    isNarrativeRevealing = false;
+    showNarrativeActions();
+    return;
+  }
 
-if(updatePopupUpgradeBtn){
-  updatePopupUpgradeBtn.addEventListener('click', ()=>{
-    dismissUpdatePopup();
+  isNarrativeRevealing = true;
+  const item = fullNarrativeScript[index];
+  renderScriptLine(item);
+  if(item.text) playTypingBeep();
+
+  const delay = item.delay || 400;
+  narrativeTimeoutId = setTimeout(()=>{
+    playNarrativeSequence(index + 1);
+  }, delay);
+}
+
+function showBootNarrativeModal(){
+  if(!bootOverlay || !bootModal) return;
+  bootOverlay.style.display = 'flex';
+  beep(740, 0.08, 'triangle', 0.04);
+
+  const hasVisited = localStorage.getItem(NARRATIVE_STORAGE_KEY) === 'true';
+
+  if(bootLogEl) bootLogEl.innerHTML = '';
+  if(bootActionsEl) bootActionsEl.style.display = 'none';
+
+  if(hasVisited){
+    // Returning visitor: show short version immediately
+    isNarrativeRevealing = false;
+    returningNarrativeScript.forEach(line => renderScriptLine(line));
+    showNarrativeActions();
+  } else {
+    // First-time visitor: typewriter reveal
+    playNarrativeSequence(0);
+  }
+}
+
+function dismissBootNarrativeModal(){
+  if(!bootOverlay) return;
+  clearTimeout(narrativeTimeoutId);
+  isNarrativeRevealing = false;
+  try {
+    localStorage.setItem(NARRATIVE_STORAGE_KEY, 'true');
+  } catch(e){}
+
+  bootOverlay.style.animation = 'overlay-fade .2s ease reverse forwards';
+  if(bootModal) bootModal.style.animation = 'popup-in .2s ease reverse forwards';
+
+  setTimeout(()=>{
+    bootOverlay.style.display = 'none';
+    bootOverlay.style.animation = '';
+    if(bootModal) bootModal.style.animation = '';
+  }, 220);
+}
+
+// Event Listeners
+if(bootCloseBtn) {
+  bootCloseBtn.addEventListener('click', ()=>{
+    beep(420, 0.06, 'sine', 0.03);
+    dismissBootNarrativeModal();
+  });
+}
+
+if(bootSkipBtn) {
+  bootSkipBtn.addEventListener('click', ()=>{
+    beep(420, 0.06, 'sine', 0.03);
+    dismissBootNarrativeModal();
+  });
+}
+
+if(bootStayBtn) {
+  bootStayBtn.addEventListener('click', ()=>{
+    beep(520, 0.06, 'square', 0.03);
+    dismissBootNarrativeModal();
+  });
+}
+
+if(bootContinueBtn) {
+  bootContinueBtn.addEventListener('click', ()=>{
+    dismissBootNarrativeModal();
     shiftTo2026();
   });
 }
 
-/* Auto-show update alert pop-up 2.2s after OS loads */
-setTimeout(showUpdatePopup, 2200);
+// Click anywhere on terminal to speed up / skip reveal if in progress
+if(bootTerminal) {
+  bootTerminal.addEventListener('click', ()=>{
+    if(isNarrativeRevealing){
+      finishNarrativeInstantly();
+    }
+  });
+}
+
+// Keyboard navigation
+window.addEventListener('keydown', (e)=>{
+  if(!bootOverlay || bootOverlay.style.display === 'none') return;
+
+  if(e.key === 'Escape'){
+    e.preventDefault();
+    dismissBootNarrativeModal();
+    return;
+  }
+
+  if(isNarrativeRevealing && (e.key === 'Enter' || e.key === ' ')){
+    e.preventDefault();
+    finishNarrativeInstantly();
+    return;
+  }
+});
+
+/* Trigger boot narrative modal 1.9s after page load (once hardware boot finishes) */
+setTimeout(showBootNarrativeModal, 1900);
 
 

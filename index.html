@@ -407,22 +407,40 @@
 <div id="toast"></div>
 <div class="search-layer" id="search-layer" aria-hidden="true"><div class="command-box" role="dialog" aria-label="Search apps"><div class="command-input"><span>⌕</span><input id="command-input" autocomplete="off" placeholder="Search applications or type a command"><kbd>ESC</kbd></div><div class="command-results" id="command-results"></div></div></div>
 <aside class="notify-panel" id="notify-panel" aria-label="Notifications"><div class="notify-head">POST &amp; NOTICES <button id="clear-notices">CLEAR</button></div><div id="notice-list"><div class="notice"><span class="notice-mark">✦</span><div><b>Welcome to OMM_OS</b><p>Explore projects, AI tools, terminal, and Spotify music player.</p></div></div><div class="notice"><span class="notice-mark">◈</span><div><b>All Systems Online</b><p>Interactive desktop applications are active.</p></div></div></div></aside>
-<!-- ============ BOTTOM LEFT UPDATE POPUP (2006 ERA RETRO POPUP) ============ -->
-<div id="update-popup" class="update-popup" role="alert" style="display:none;">
-  <div class="update-popup-titlebar">
-    <div class="update-popup-kicker"><span class="update-popup-pip">◆</span> SYSTEM NOTIFICATION</div>
-    <button class="update-popup-close" id="update-popup-close" title="Dismiss">✕</button>
-  </div>
-  <div class="update-popup-content">
-    <div class="update-popup-icon-box">
-      <span class="update-popup-icon">🚀</span>
+<!-- ============ ENTRY BOOT NARRATIVE MODAL (2006 RETRO OS DIALOGUE) ============ -->
+<div id="boot-narrative-overlay" class="boot-narrative-overlay" role="dialog" aria-modal="true" aria-labelledby="boot-narrative-title" style="display:none;">
+  <div id="boot-narrative-modal" class="boot-narrative-modal">
+    <div class="boot-narrative-titlebar">
+      <div class="boot-narrative-title" id="boot-narrative-title">
+        <span class="boot-narrative-icon">💾</span>
+        <span>OMM_OS // SYSTEM_BOOT.LOG</span>
+      </div>
+      <button class="boot-narrative-close" id="boot-narrative-close-btn" title="Close (Stay in 2006)" aria-label="Close dialog">✕</button>
     </div>
-    <div class="update-popup-body">
-      <div class="update-popup-title">OMM_OS v2026 Ready</div>
-      <p class="update-popup-desc">New spatial 3D WebGL engine &amp; AI universe are ready to install.</p>
-      <div class="update-popup-actions">
-        <button class="update-popup-btn update-popup-upgrade" id="update-popup-upgrade-btn">Upgrade ↗</button>
-        <button class="update-popup-btn update-popup-later" id="update-popup-later-btn">Later</button>
+    
+    <div class="boot-narrative-body" id="boot-narrative-body">
+      <div class="boot-narrative-terminal" id="boot-narrative-terminal" tabindex="0" role="region" aria-label="Boot message narrative">
+        <div class="boot-narrative-log" id="boot-narrative-log"></div>
+        <span class="boot-narrative-cursor" id="boot-narrative-cursor" aria-hidden="true">▋</span>
+      </div>
+
+      <div class="boot-narrative-actions" id="boot-narrative-actions" style="display:none;">
+        <button class="boot-btn boot-btn-stay" id="boot-stay-btn" tabindex="0">
+          <span class="boot-btn-icon">📼</span> Stay in 2006
+        </button>
+        <button class="boot-btn boot-btn-continue" id="boot-continue-btn" tabindex="0">
+          <span class="boot-btn-icon">⚡</span> Continue to 2026 →
+        </button>
+      </div>
+    </div>
+
+    <div class="boot-narrative-footer">
+      <div class="boot-narrative-hint">
+        <span class="boot-kbd-hint"><kbd>ESC</kbd> Stay</span>
+        <span class="boot-kbd-hint"><kbd>ENTER</kbd> Select</span>
+      </div>
+      <div class="boot-narrative-footer-actions">
+        <button class="boot-narrative-skip" id="boot-narrative-skip-btn">skip intro ➔</button>
       </div>
     </div>
   </div>
